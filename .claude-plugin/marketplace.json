@@ -1,0 +1,13 @@
+{
+  "name": "ghosthack-skills",
+  "owner": {
+    "name": "GhostHack616"
+  },
+  "plugins": [
+    {
+      "name": "lemlist",
+      "source": "./plugins/lemlist",
+      "description": "38-skill GTM / outbound library from lemlist (l3mpire/claude-skills) — ICP, sourcing, cold email & LinkedIn copywriting, campaign design, benchmarking, CRM hygiene, n8n automation. Minus the Claap-specific skill."
+    }
+  ]
+}

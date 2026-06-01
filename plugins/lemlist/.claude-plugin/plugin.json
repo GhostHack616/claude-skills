@@ -1,0 +1,10 @@
+{
+  "name": "lemlist",
+  "description": "GTM & outbound skills for cold email and LinkedIn: ICP/persona definition, list building, copywriting by seniority (VP/Manager/IC), follow-ups, CTA design, campaign architecture, outbound benchmarking (244K+ campaigns), reply handling, CRM hygiene, and n8n automation.",
+  "version": "1.0.0",
+  "author": {
+    "name": "GhostHack616"
+  },
+  "homepage": "https://github.com/GhostHack616/claude-skills",
+  "license": "MIT"
+}
