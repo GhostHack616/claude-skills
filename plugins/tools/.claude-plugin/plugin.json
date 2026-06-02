@@ -1,0 +1,10 @@
+{
+  "name": "tools",
+  "description": "General-purpose technical skills (non-marketing). Currently: youtube-transcript — read any YouTube video's transcript as plain text, no API key or cookie.",
+  "version": "1.0.0",
+  "author": {
+    "name": "GhostHack616"
+  },
+  "homepage": "https://github.com/GhostHack616/claude-skills",
+  "license": "MIT"
+}
