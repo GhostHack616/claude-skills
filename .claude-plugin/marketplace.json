@@ -13,6 +13,11 @@
       "name": "tools",
       "source": "./plugins/tools",
       "description": "General-purpose technical skills. youtube-transcript: read any YouTube video's transcript as plain text (yt subtitles), no API key or cookie."
+    },
+    {
+      "name": "productivity",
+      "source": "./plugins/productivity",
+      "description": "Model-agnostic productivity skills from Matt Pocock (MIT). grill-me (stress-test a plan via relentless interview), handoff (compact a conversation into a handoff doc), write-a-skill (author new skills properly)."
     }
   ]
 }

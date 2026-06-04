@@ -1,0 +1,10 @@
+{
+  "name": "productivity",
+  "description": "General-purpose productivity skills (model-agnostic, non-marketing). grill-me: relentlessly interview/stress-test a plan until shared understanding. handoff: compact a conversation into a handoff doc for a new session. write-a-skill: create new skills with proper structure.",
+  "version": "1.0.0",
+  "author": {
+    "name": "GhostHack616"
+  },
+  "homepage": "https://github.com/GhostHack616/claude-skills",
+  "license": "MIT"
+}
