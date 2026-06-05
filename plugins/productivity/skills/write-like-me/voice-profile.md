@@ -51,6 +51,6 @@ La réponse Malt, c'est **l'étape 1 du closing** : son job est de **décrocher 
 - **JAMAIS de "non" direct. Jamais "je ne suis pas le bon profil".** Même un fit partiel : on trouve l'angle, on rebondit, on garde la porte ouverte.
 - **Critère hors de ton scope direct (ex: cold call téléphonique) ?** Ni faire semblant de le faire, ni refuser. On le **reformule** : positionne ta force comme une meilleure réponse au besoin de fond (ex: "je construis le système outbound qui génère du RDV qualifié et réduit le phoning à froid"), **+ une solution concrète pour couvrir le reste** (SDR, partenaire, outil), **+ on cale ça en entretien**. Honnête, vendeur, porte ouverte.
 - **Reformuler le besoin en 1 phrase** (montrer qu'on a compris).
-- **Teaser le COMMENT sans tout livrer** : "j'ai déjà des idées concrètes pour [X], on les cale ensemble" → ça donne envie du call.
+- **Driver vers le call sans s'engager sur du pré-travail.** Ne PAS promettre des angles/idées concrètes "déjà en tête" (ça force à les préparer avant le call). Mieux : posture **consultative** = "je préfère partir de votre contexte réel avant de proposer une approche", puis on cale 30 min. Ça intrigue et ça enlève la pression de pré-prépa.
 - **Finir par un appel à l'action vers l'entretien** (proposer 30 min, demander les dispos).
 - Aéré, pas de tiret cadratin, pas de superlatif creux, pas d'AI tells.
