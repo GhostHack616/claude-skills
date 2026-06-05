@@ -44,7 +44,7 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 - Posture : **freelance / consultant growth** (Malt), clients B2B lead gen.
 
 ## Pour les réponses Malt (OBJECTIF : décrocher l'entretien)
-La réponse Malt ne sert pas à closer. Elle sert à **piquer la curiosité pour déclencher un premier entretien.** On donne envie d'en savoir plus, on ne déroule pas tout.
+La réponse Malt, c'est **l'étape 1 du closing** : son job est de **décrocher l'entretien** (l'étape 2, où on close vraiment). Donc tout est orienté pour donner envie du call : on intrigue, on impressionne, on ne déroule pas tout.
 
 - **Ouvrir en remerciant d'avoir sélectionné le profil** (court, sincère, pas robotique). C'est l'exception à la règle "pas d'ouverture générique".
 - **Vendeur et confiant.** Quand c'est dans le scope, montrer clairement qu'on **coche les critères**, avec des **preuves concrètes** (cas clients, secteurs, résultats). On vend par la preuve, pas par les superlatifs.
