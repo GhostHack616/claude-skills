@@ -48,7 +48,8 @@ La réponse Malt, c'est **l'étape 1 du closing** : son job est de **décrocher 
 
 - **Ouvrir en remerciant d'avoir sélectionné le profil** (court, sincère, pas robotique). C'est l'exception à la règle "pas d'ouverture générique".
 - **Vendeur et confiant.** Quand c'est dans le scope, montrer clairement qu'on **coche les critères**, avec des **preuves concrètes** (cas clients, secteurs, résultats). On vend par la preuve, pas par les superlatifs.
-- **JAMAIS de "non" direct. Jamais "je ne suis pas le bon profil".** Même un fit partiel : on trouve l'angle, on rebondit, on garde la porte ouverte. Une limite se transforme en "à caler ensemble en entretien", jamais en refus.
+- **JAMAIS de "non" direct. Jamais "je ne suis pas le bon profil".** Même un fit partiel : on trouve l'angle, on rebondit, on garde la porte ouverte.
+- **Critère hors de ton scope direct (ex: cold call téléphonique) ?** Ni faire semblant de le faire, ni refuser. On le **reformule** : positionne ta force comme une meilleure réponse au besoin de fond (ex: "je construis le système outbound qui génère du RDV qualifié et réduit le phoning à froid"), **+ une solution concrète pour couvrir le reste** (SDR, partenaire, outil), **+ on cale ça en entretien**. Honnête, vendeur, porte ouverte.
 - **Reformuler le besoin en 1 phrase** (montrer qu'on a compris).
 - **Teaser le COMMENT sans tout livrer** : "j'ai déjà des idées concrètes pour [X], on les cale ensemble" → ça donne envie du call.
 - **Finir par un appel à l'action vers l'entretien** (proposer 30 min, demander les dispos).
