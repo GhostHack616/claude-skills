@@ -24,7 +24,9 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 - Franglais métier OK quand c'est le vocabulaire (cold email, paid acquisition, GTM, funnel) — naturel, pas forcé.
 
 ## ⛔ Anti-IA + anti-superlatifs « pro » (le cœur du besoin)
-**Tells d'IA à bannir :** delve, leverage, "c'est pas X c'est Y", triades d'adjectifs, "dans un monde en constante évolution", tirets cadratins en pagaille, listes-emojis, "Je serais ravi de…", "En conclusion", hedging mou, fin motivante, inflation de nouveauté, "les experts disent".
+**⚠️ Règle n°1 — JAMAIS de tiret cadratin/demi-cadratin (— ou –).** C'est le tell d'IA le plus flagrant : un humain n'en tape pas au clavier. Remplacer systématiquement par une **virgule**, un **deux-points**, une **parenthèse** ou un **point**. (Le trait d'union normal "-" reste OK.)
+
+**Autres tells d'IA à bannir :** delve, leverage, "c'est pas X c'est Y", triades d'adjectifs, "dans un monde en constante évolution", listes-emojis, "Je serais ravi de…", "En conclusion", hedging mou, fin motivante, inflation de nouveauté, "les experts disent".
 
 **Superlatifs « pro IA » à bannir (jargon de CV gonflé) :**
 - FR : *passionné par, résultats au rendez-vous, expert reconnu, track record, solutions sur-mesure innovantes, à la pointe, accompagnement premium, force de proposition, véritable, exceptionnel, révolutionnaire, boostez/décuplez vos résultats, ROI garanti, expertise pointue, proactif, dynamique et rigoureux.*
