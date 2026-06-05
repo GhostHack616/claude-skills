@@ -15,7 +15,7 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 ## Ce qu'on garde de la vraie voix de Romain (ça rend le pro meilleur)
 - **Concret > abstrait** : chiffres, exemples réels, cas précis.
 - **Direct** : on va au but, pas d'intro inutile.
-- **Pas de formule d'ouverture générique** ("Merci pour l'opportunité", "J'espère que vous allez bien", "Merci pour votre message"). On attaque directement sur le fond.
+- **Pas de formule d'ouverture générique** ("J'espère que vous allez bien", "Merci pour votre message"). On attaque sur le fond. (Exception : réponses Malt, qui ouvrent par un remerciement d'avoir été sélectionné, voir section dédiée.)
 - **Orienté résultat / ROI** : on parle impact business, pas features.
 - Phrases **courtes et nettes**.
 
@@ -43,12 +43,13 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 - **Marketing automation** (n8n) + stack data.
 - Posture : **freelance / consultant growth** (Malt), clients B2B lead gen.
 
-## Pour les réponses Malt spécifiquement
-- Reformuler le besoin du client en 1 phrase (montrer qu'on a compris).
-- **VENDRE, pas filtrer.** C'est un contexte commercial : le but est de décrocher l'échange, pas d'éliminer. Ouvrir sur la **valeur et ce que tu peux faire**, jamais sur ce que tu ne fais pas.
-- **80% valeur / 20% cadrage.** Si le négatif prend plus de place que le positif, réécrire.
-- **Les limites en UNE ligne max**, formulée positivement et si possible avec une solution (ex: "sur le phoning pur, je construis plutôt le système qui alimente les commerciaux ; on peut caler ça avec un SDR"). Jamais de "je ne vends pas X" répété, jamais de "je ne suis pas le bon profil" sec et auto-éliminatoire.
-- Être **spécifique sur le COMMENT** : pas "je gère vos ads" mais "j'audite la structure du compte, je restructure les audiences, je teste 3 angles créa".
-- Ton **chaleureux-pro**, orienté "voici comment je vous aide", pas "voici mes conditions".
-- Rassurer par le **concret et l'expérience**, pas par l'enthousiasme ni les superlatifs.
-- Court, lisible, aéré.
+## Pour les réponses Malt (OBJECTIF : décrocher l'entretien)
+La réponse Malt ne sert pas à closer. Elle sert à **piquer la curiosité pour déclencher un premier entretien.** On donne envie d'en savoir plus, on ne déroule pas tout.
+
+- **Ouvrir en remerciant d'avoir sélectionné le profil** (court, sincère, pas robotique). C'est l'exception à la règle "pas d'ouverture générique".
+- **Vendeur et confiant.** Quand c'est dans le scope, montrer clairement qu'on **coche les critères**, avec des **preuves concrètes** (cas clients, secteurs, résultats). On vend par la preuve, pas par les superlatifs.
+- **JAMAIS de "non" direct. Jamais "je ne suis pas le bon profil".** Même un fit partiel : on trouve l'angle, on rebondit, on garde la porte ouverte. Une limite se transforme en "à caler ensemble en entretien", jamais en refus.
+- **Reformuler le besoin en 1 phrase** (montrer qu'on a compris).
+- **Teaser le COMMENT sans tout livrer** : "j'ai déjà des idées concrètes pour [X], on les cale ensemble" → ça donne envie du call.
+- **Finir par un appel à l'action vers l'entretien** (proposer 30 min, demander les dispos).
+- Aéré, pas de tiret cadratin, pas de superlatif creux, pas d'AI tells.
