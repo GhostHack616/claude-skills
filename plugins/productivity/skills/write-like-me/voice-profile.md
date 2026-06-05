@@ -45,6 +45,10 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 
 ## Pour les réponses Malt spécifiquement
 - Reformuler le besoin du client en 1 phrase (montrer qu'on a compris).
+- **VENDRE, pas filtrer.** C'est un contexte commercial : le but est de décrocher l'échange, pas d'éliminer. Ouvrir sur la **valeur et ce que tu peux faire**, jamais sur ce que tu ne fais pas.
+- **80% valeur / 20% cadrage.** Si le négatif prend plus de place que le positif, réécrire.
+- **Les limites en UNE ligne max**, formulée positivement et si possible avec une solution (ex: "sur le phoning pur, je construis plutôt le système qui alimente les commerciaux ; on peut caler ça avec un SDR"). Jamais de "je ne vends pas X" répété, jamais de "je ne suis pas le bon profil" sec et auto-éliminatoire.
 - Être **spécifique sur le COMMENT** : pas "je gère vos ads" mais "j'audite la structure du compte, je restructure les audiences, je teste 3 angles créa".
+- Ton **chaleureux-pro**, orienté "voici comment je vous aide", pas "voici mes conditions".
 - Rassurer par le **concret et l'expérience**, pas par l'enthousiasme ni les superlatifs.
-- Court, lisible, pro.
+- Court, lisible, aéré.
