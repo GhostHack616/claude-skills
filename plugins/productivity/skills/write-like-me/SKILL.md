@@ -9,8 +9,9 @@ Deux jobs, pas un : **(1)** enlever les empreintes d'IA, **(2)** faire que ça s
 
 ## Étape 1 — Récupérer la voix (obligatoire)
 Avant toute réécriture, il te faut la vraie voix de l'utilisateur. Dans l'ordre :
-1. Si un fichier **`voice-profile.md`** existe dans le projet → lis-le.
-2. Sinon → demande à l'utilisateur de coller **3 à 5 échantillons** de SON écriture publique (posts LinkedIn, emails dont il est fier). **Ne réécris pas sans échantillons** — sinon c'est de l'humain générique, pas lui.
+1. **Lis le `voice-profile.md` fourni dans ce dossier de skill** — c'est la voix de Romain (registre pro/neutre pour Malt & contextes pros). Applique-le par défaut.
+2. Si un `voice-profile.md` existe aussi dans le projet courant, il **a priorité** (contexte plus précis).
+3. Si aucun profil n'existe ET que c'est une autre personne → demande **3 à 5 échantillons** de SON écriture. **Ne réécris pas "en sa voix" sans matière** — sinon c'est de l'humain générique.
 3. À partir des échantillons, extrais et note :
    - **Rythme** des phrases (courtes/sèches ? longues ? mélange ?)
    - **Vocabulaire** & expressions récurrentes, argot, langue (mix FR/EN ?)
