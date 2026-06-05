@@ -15,6 +15,7 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 ## Ce qu'on garde de la vraie voix de Romain (ça rend le pro meilleur)
 - **Concret > abstrait** : chiffres, exemples réels, cas précis.
 - **Direct** : on va au but, pas d'intro inutile.
+- **Pas de formule d'ouverture générique** ("Merci pour l'opportunité", "J'espère que vous allez bien", "Merci pour votre message"). On attaque directement sur le fond.
 - **Orienté résultat / ROI** : on parle impact business, pas features.
 - Phrases **courtes et nettes**.
 
