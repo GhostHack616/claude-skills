@@ -21,7 +21,8 @@ Par défaut : **vouvoiement** avec les clients (ajustable si le client tutoie).
 ## Mécanique (propre, pour le public)
 - Orthographe + accents corrects (on enlève le SMS du chat).
 - Ponctuation normale. Pas de CAPS d'emphase, pas de jurons.
-- Franglais métier OK quand c'est le vocabulaire (cold email, paid acquisition, GTM, funnel) — naturel, pas forcé.
+- **Aère beaucoup le texte** : retours à la ligne fréquents, blocs courts (souvent 1 à 2 phrases), de l'air entre les idées. Pas de gros pavés.
+- Franglais métier OK quand c'est le vocabulaire (cold email, paid acquisition, GTM, funnel) : naturel, pas forcé.
 
 ## ⛔ Anti-IA + anti-superlatifs « pro » (le cœur du besoin)
 **⚠️ Règle n°1 — JAMAIS de tiret cadratin/demi-cadratin (— ou –).** C'est le tell d'IA le plus flagrant : un humain n'en tape pas au clavier. Remplacer systématiquement par une **virgule**, un **deux-points**, une **parenthèse** ou un **point**. (Le trait d'union normal "-" reste OK.)
