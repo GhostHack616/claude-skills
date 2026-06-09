@@ -10,6 +10,11 @@ description: Create new agent skills with proper structure, progressive disclosu
 1. **Gather requirements** - ask user about:
    - What task/domain does the skill cover?
    - What specific use cases should it handle?
+   - **Triggers**: which words, requests, or contexts should activate it?
+   - **Anti-triggers**: which nearby requests should NOT activate it? (critical when similar skills exist — e.g. "general brief" → no, "specific client brief" → yes)
+   - What inputs does the skill need to start?
+   - What output format is expected (sections, length, tone, level of detail)?
+   - **Strict rules**: anything that must never appear in the output?
    - Does it need executable scripts or just instructions?
    - Any reference materials to include?
 
@@ -22,6 +27,11 @@ description: Create new agent skills with proper structure, progressive disclosu
    - Does this cover your use cases?
    - Anything missing or unclear?
    - Should any section be more/less detailed?
+
+4. **Stress-test activation** - before calling it done:
+   - Phrase the same request 5 different ways (synonyms, vague phrasing, French/English if relevant) and check the skill would trigger on each
+   - Test 2-3 anti-trigger requests and check it would NOT trigger
+   - If activation fails, the triggers in the description are too vague — go back to step 1 and sharpen them
 
 ## Skill Structure
 
@@ -65,6 +75,7 @@ The description is **the only thing your agent sees** when deciding which skill 
 
 1. What capability this skill provides
 2. When/why to trigger it (specific keywords, contexts, file types)
+3. When NOT to trigger it, if a similar skill exists (e.g. "Do NOT use for individual contact data" — see niche-data-finder)
 
 **Format**:
 
@@ -110,6 +121,9 @@ Split into separate files when:
 After drafting, verify:
 
 - [ ] Description includes triggers ("Use when...")
+- [ ] Anti-triggers defined if the skill overlaps with an existing one
+- [ ] Output format and strict rules (what must never appear) captured if the user has them
+- [ ] Stress-tested: triggers on 5 rephrasings, stays silent on anti-trigger requests
 - [ ] SKILL.md under 100 lines
 - [ ] No time-sensitive info
 - [ ] Consistent terminology
