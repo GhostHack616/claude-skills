@@ -11,7 +11,7 @@
 ### Plugin `productivity` (6 skills) — mes skills perso
 | Skill | Rôle |
 |---|---|
-| `malt-workflow` | Workflow Malt de bout en bout : va chercher l'offre dans Gmail, lit profil + stats (RepoPro), juge le fit, produit la réponse Malt + un email de renfort, ou un dossier de ranking si hors cible. S'optimise via un journal win-loss. |
+| `malt-workflow` | Workflow Malt à 2 modes. **Offre** : va chercher l'offre dans Gmail, lit profil + stats (RepoPro), juge le fit, produit la réponse Malt + un email de renfort, ou un dossier de ranking si hors cible. **Profil** : audite le compte Malt (titre, mots-clés, description, TJM) et sort un plan de modif en cas de disette ou sur demande. S'optimise via les journaux win-loss + changements de profil. |
 | `malt-response` | Playbook de réponse Malt gagnante (méthode pure, vendeuse, objectif = décrocher l'entretien). |
 | `write-like-me` | Réécrit dans ma voix (anti-IA, zéro tiret cadratin). **Contient `voice-profile.md` = la source de vérité de ma voix.** |
 | `grill-me` | Stress-test d'un plan par interview serré. |

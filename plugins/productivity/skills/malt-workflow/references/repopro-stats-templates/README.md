@@ -3,10 +3,11 @@
 Ces fichiers sont des **données privées** : ils vivent dans RepoPro (privé), jamais dans le repo public claude-skills.
 
 ## Installation
-Copier les 3 fichiers dans `RepoPro/stats/` :
-- `malt-plateforme.md`
-- `historique-missions.md`
-- `win-loss.md`
+Copier les 4 fichiers dans `RepoPro/stats/` :
+- `malt-plateforme.md` (volume et conversion des offres dans le temps)
+- `historique-missions.md` (sweet spot réel, TJM par type)
+- `win-loss.md` (journal des offres traitées, s'auto-remplit)
+- `malt-profil-actuel.md` (contenu de ton compte Malt, audité en mode profil)
 
 (Les résultats clients détaillés restent dans `mes-preuves.md`, pas besoin de les dupliquer ici.)
 
