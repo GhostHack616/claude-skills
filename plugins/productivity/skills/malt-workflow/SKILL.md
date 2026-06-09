@@ -1,6 +1,6 @@
 ---
 name: malt-workflow
-description: Workflow Malt complet pour Romain (freelance GTM / growth), à deux modes. MODE OFFRE : quand une opportunité Malt arrive, le skill va la chercher LUI-MÊME dans Gmail, analyse l'entreprise, lit profil + stats (RepoPro), juge le fit, puis produit soit la réponse Malt vendeuse + un email de renfort direct (objet "Votre futur {poste}") si pertinent, soit une réponse + un dossier de ranking si hors cible. MODE PROFIL : quand Romain n'a pas de propal depuis un moment (disette) ou veut optimiser son compte, le skill audite son profil Malt (titre, mots-clés, description, TJM) face à ce qui marche / ne marche pas, et sort un plan de modif concret (quels mots-clés ajouter/retirer, quelle description, quel TJM). Utiliser sur "traite ma dernière offre Malt", "workflow Malt", "j'ai reçu une offre Malt", "réponse + email Malt", "optimise mon profil Malt", "j'ai pas de propal depuis X", "pourquoi je reçois plus d'offres", "audit mon profil Malt", "mes mots-clés Malt".
+description: Workflow Malt complet pour Romain (freelance GTM / growth), à deux modes. MODE OFFRE : quand une opportunité Malt arrive, le skill va la chercher LUI-MÊME dans Gmail, analyse l'entreprise, lit profil + stats (RomainPro), juge le fit, puis produit soit la réponse Malt vendeuse + un email de renfort direct (objet "Votre futur {poste}") si pertinent, soit une réponse + un dossier de ranking si hors cible. MODE PROFIL : quand Romain n'a pas de propal depuis un moment (disette) ou veut optimiser son compte, le skill audite son profil Malt (titre, mots-clés, description, TJM) face à ce qui marche / ne marche pas, et sort un plan de modif concret (quels mots-clés ajouter/retirer, quelle description, quel TJM). Utiliser sur "traite ma dernière offre Malt", "workflow Malt", "j'ai reçu une offre Malt", "réponse + email Malt", "optimise mon profil Malt", "j'ai pas de propal depuis X", "pourquoi je reçois plus d'offres", "audit mon profil Malt", "mes mots-clés Malt".
 ---
 
 # Malt Workflow
@@ -9,9 +9,9 @@ Deux niveaux dans le même skill. Choisir le mode selon la demande :
 - **Mode offre** (micro) : une opportunité Malt arrive, on la traite (réponse + email, ou réponse + dossier). C'est le défaut quand on parle d'une offre précise.
 - **Mode profil** (macro) : pas d'offre à traiter. On audite et on optimise le compte Malt lui-même. Déclenché sur demande, ou en cas de **disette** (plus d'opportunités depuis un moment), ou "pourquoi je reçois moins d'offres".
 
-Le skill se cale sur l'activité réelle de Romain (profil + stats dans RepoPro) et s'améliore dans le temps (journal win-loss + journal des changements de profil).
+Le skill se cale sur l'activité réelle de Romain (profil + stats dans RomainPro) et s'améliore dans le temps (journal win-loss + journal des changements de profil).
 
-S'appuie sur deux skills déjà installés dans RepoPro :
+S'appuie sur deux skills déjà installés dans RomainPro :
 - **`malt-response`** pour la logique de réponse vendeuse.
 - **`write-like-me`** + son `voice-profile.md` pour la voix (obligatoire sur toute sortie, y compris une description de profil réécrite).
 
@@ -39,7 +39,7 @@ Ne JAMAIS chercher le mail du décideur soi-même : l'utilisateur s'en charge (n
 5. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
 6. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
 7. **Charge le profil.** Le profil de Romain, c'est **tout le repo RomainPro** : lire en priorité `comment-je-me-vends.md`, `mes-preuves.md`, `capture-a-chaud.md`, le "Profil Professionnel", et tout doc de positionnement / cas client présent. Notion ("Profil Professionnel Romain") en secours si le repo ne suffit pas. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
-8. **Charge les stats / l'activité** depuis `RepoPro/stats/` (s'ils existent) : `malt-plateforme.md` (taux de réponse, conversion par secteur, note), `historique-missions.md` (sweet spot réel, TJM par type), `win-loss.md` (le journal des offres déjà traitées, gagnées/perdues et pourquoi), `malt-profil-actuel.md` (le contenu du compte Malt). Plus les résultats clients dans `mes-preuves.md`. Ces stats servent à juger sur la **réalité** de Romain, pas sur la théorie. Si les fichiers n'existent pas encore, le signaler une fois et continuer sur le profil seul (templates dans `references/repopro-stats-templates/`).
+8. **Charge les stats / l'activité** depuis `RomainPro/stats/` (s'ils existent) : `malt-plateforme.md` (taux de réponse, conversion par secteur, note), `historique-missions.md` (sweet spot réel, TJM par type), `win-loss.md` (le journal des offres déjà traitées, gagnées/perdues et pourquoi), `malt-profil-actuel.md` (le contenu du compte Malt). Plus les résultats clients dans `mes-preuves.md`. Ces stats servent à juger sur la **réalité** de Romain, pas sur la théorie. Si les fichiers n'existent pas encore, le signaler une fois et continuer sur le profil seul (templates dans `references/repopro-stats-templates/`).
 
 ## Étape 2 : juger le fit
 ICP cible : scale-up, SaaS B2B, fintech, plateforme tech qui veut scaler son acquisition sans recruter une équipe growth/sales ops.
@@ -82,7 +82,7 @@ Quand une offre arrive hors cœur, c'est un signal que le profil Malt **rance tr
 Le dossier s'enrichit offre après offre (capitalise, ne repars pas de zéro si un dossier existe déjà dans le repo). Croise le diagnostic avec `win-loss.md` : si le même type d'offre hors cible revient et n'est jamais converti, c'est une confirmation forte du mis-ranking, à remonter dans la reco profil.
 
 ## Étape 4 : boucler (optimisation continue)
-Quelle que soit l'issue (pertinent ou hors cible), **ajouter une ligne dans `RepoPro/stats/win-loss.md`** : date, entreprise, rôle, secteur, fit jugé, angle utilisé, RDV/gagnée en attente. C'est ce journal qui fait que le skill s'améliore offre après offre. Mettre à jour la section "Patterns observés" du fichier si un signal net se dégage. Ne rien écrire de privé dans le repo public claude-skills : ces données restent dans RepoPro.
+Quelle que soit l'issue (pertinent ou hors cible), **ajouter une ligne dans `RomainPro/stats/win-loss.md`** : date, entreprise, rôle, secteur, fit jugé, angle utilisé, RDV/gagnée en attente. C'est ce journal qui fait que le skill s'améliore offre après offre. Mettre à jour la section "Patterns observés" du fichier si un signal net se dégage. Ne rien écrire de privé dans le repo public claude-skills : ces données restent dans RomainPro.
 
 ## Sortie (mode offre)
 - **Pertinent** : la réponse Malt + l'email de renfort (objet + corps), prêts à coller. Plus une ligne sur le niveau de fit retenu (et ce que les stats y ont changé).
@@ -98,7 +98,7 @@ Quelle que soit l'issue (pertinent ou hors cible), **ajouter une ligne dans `Rep
 - **Disette** : Romain signale qu'il n'a pas eu de propal depuis X (1 semaine, 1 mois), ou les dates dans `win-loss.md` / `malt-plateforme.md` montrent un trou anormal vs son rythme habituel. Le problème n'est alors pas la réponse aux offres : c'est le profil qui ne génère plus assez d'opportunités, ou les mauvaises.
 
 ## Étape P1 : charger la matière
-Lire `RepoPro/stats/malt-profil-actuel.md` (titre, mots-clés, description, TJM, journal des changements), `malt-plateforme.md` (volume et pertinence des offres dans le temps), `win-loss.md` + les dossiers Malt accumulés (ce qui matche / ce qui est du bruit), et le profil pro (ICP cible, positionnement). Si `malt-profil-actuel.md` n'existe pas, demander à Romain de coller le contenu de son compte Malt (titre, tags, description, TJM).
+Lire `RomainPro/stats/malt-profil-actuel.md` (titre, mots-clés, description, TJM, journal des changements), `malt-plateforme.md` (volume et pertinence des offres dans le temps), `win-loss.md` + les dossiers Malt accumulés (ce qui matche / ce qui est du bruit), et le profil pro (ICP cible, positionnement). Si `malt-profil-actuel.md` n'existe pas, demander à Romain de coller le contenu de son compte Malt (titre, tags, description, TJM).
 
 ## Étape P2 : diagnostiquer
 Croiser trois choses : ce que **dit** le profil (mots-clés, titre, description), ce que Romain **veut** (ICP cible), ce qu'il **reçoit** vraiment (offres pertinentes vs bruit, volume).

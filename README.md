@@ -1,6 +1,6 @@
 # claude-skills
 
-**La source de vérité de mes skills Claude.** Ce dépôt centralise tous les skills (méthodes, playbooks, outils) et sert de base aux autres repos (RepoPro, repos clients). Un skill = un dossier avec un `SKILL.md`.
+**La source de vérité de mes skills Claude.** Ce dépôt centralise tous les skills (méthodes, playbooks, outils) et sert de base aux autres repos (RomainPro, repos clients). Un skill = un dossier avec un `SKILL.md`.
 
 > Règle d'or : un skill ne vit qu'**ici**. Les autres repos en reçoivent une **copie**. On ne modifie jamais un skill dans un repo consommateur sans le répercuter ici, sinon ça drifte.
 
@@ -11,7 +11,7 @@
 ### Plugin `productivity` (6 skills) — mes skills perso
 | Skill | Rôle |
 |---|---|
-| `malt-workflow` | Workflow Malt à 2 modes. **Offre** : va chercher l'offre dans Gmail, lit profil + stats (RepoPro), juge le fit, produit la réponse Malt + un email de renfort, ou un dossier de ranking si hors cible. **Profil** : audite le compte Malt (titre, mots-clés, description, TJM) et sort un plan de modif en cas de disette ou sur demande. S'optimise via les journaux win-loss + changements de profil. |
+| `malt-workflow` | Workflow Malt à 2 modes. **Offre** : va chercher l'offre dans Gmail, lit profil + stats (RomainPro), juge le fit, produit la réponse Malt + un email de renfort, ou un dossier de ranking si hors cible. **Profil** : audite le compte Malt (titre, mots-clés, description, TJM) et sort un plan de modif en cas de disette ou sur demande. S'optimise via les journaux win-loss + changements de profil. |
 | `malt-response` | Playbook de réponse Malt gagnante (méthode pure, vendeuse, objectif = décrocher l'entretien). |
 | `write-like-me` | Réécrit dans ma voix (anti-IA, zéro tiret cadratin). **Contient `voice-profile.md` = la source de vérité de ma voix.** |
 | `grill-me` | Stress-test d'un plan par interview serré. |
@@ -34,10 +34,10 @@ ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking,
 Il y a **deux mécanismes**, et ils ne marchent pas dans les mêmes contextes. À ne pas confondre.
 
 ### 1. Vendoring dans `.claude/skills/` — **le seul fiable en web**
-Copier le dossier du skill dans `RepoPro/.claude/skills/<skill>/`. Au démarrage d'une session (CLI **et** web), Claude charge les skills présents là. C'est la méthode utilisée pour RepoPro.
+Copier le dossier du skill dans `RomainPro/.claude/skills/<skill>/`. Au démarrage d'une session (CLI **et** web), Claude charge les skills présents là. C'est la méthode utilisée pour RomainPro.
 
 ```
-RepoPro/
+RomainPro/
 └── .claude/
     └── skills/
         ├── malt-workflow/
@@ -66,16 +66,16 @@ ou via `.claude/settings.json` (`extraKnownMarketplaces` + `enabledPlugins`).
 1. Tout changement (skill ou voix) se fait **ici**, sur `master`.
 2. Pour la voix / l'écriture : un seul fichier, `plugins/productivity/skills/write-like-me/voice-profile.md`. `malt-workflow` et `malt-response` ne font que le référencer.
 3. On régénère le zip dans `dist/`, on le redépose dans le repo consommateur (qui écrase l'ancienne copie).
-4. On ne modifie jamais la copie dans RepoPro sans backporter ici.
+4. On ne modifie jamais la copie dans RomainPro sans backporter ici.
 
 ---
 
 ## Données privées vs méthode
 
 - **Les skills = la méthode** (public, ce repo). Aucun chiffre client, aucune preuve, aucun secret dedans.
-- **Mes données = profil, preuves, stats, activité** (privé, RepoPro). Lues par les skills à l'exécution, jamais commitées ici.
+- **Mes données = profil, preuves, stats, activité** (privé, RomainPro). Lues par les skills à l'exécution, jamais commitées ici.
 
-Ex : `malt-workflow` lit `RepoPro/stats/` (modèles fournis dans `plugins/productivity/skills/malt-workflow/references/repopro-stats-templates/`), mais ces fichiers remplis restent dans RepoPro.
+Ex : `malt-workflow` lit `RomainPro/stats/` (modèles fournis dans `plugins/productivity/skills/malt-workflow/references/repopro-stats-templates/`), mais ces fichiers remplis restent dans RomainPro.
 
 ---
 

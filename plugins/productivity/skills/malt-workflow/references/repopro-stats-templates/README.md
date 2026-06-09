@@ -1,9 +1,9 @@
-# Modèles stats à déposer dans RepoPro
+# Modèles stats à déposer dans RomainPro
 
-Ces fichiers sont des **données privées** : ils vivent dans RepoPro (privé), jamais dans le repo public claude-skills.
+Ces fichiers sont des **données privées** : ils vivent dans RomainPro (privé), jamais dans le repo public claude-skills.
 
 ## Installation
-Copier les 4 fichiers dans `RepoPro/stats/` :
+Copier les 4 fichiers dans `RomainPro/stats/` :
 - `malt-plateforme.md` (volume et conversion des offres dans le temps)
 - `historique-missions.md` (sweet spot réel, TJM par type)
 - `win-loss.md` (journal des offres traitées, s'auto-remplit)
