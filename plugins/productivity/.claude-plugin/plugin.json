@@ -1,7 +1,7 @@
 {
   "name": "productivity",
-  "description": "General-purpose productivity skills (model-agnostic, non-marketing). grill-me: relentlessly interview/stress-test a plan until shared understanding. handoff: compact a conversation into a handoff doc for a new session. write-a-skill: create new skills with proper structure.",
-  "version": "1.0.0",
+  "description": "Productivity skills. grill-me: stress-test a plan via relentless interview. handoff: compact a conversation into a handoff doc. write-a-skill: author new skills. write-like-me: rewrite in the user's voice (no AI tells). malt-response: Malt proposal playbook. malt-workflow: end-to-end Malt offer handling (Gmail intake, fit, reply + reinforcement email, or off-target ranking dossier) plus a profile-audit mode.",
+  "version": "1.1.0",
   "author": {
     "name": "GhostHack616"
   },
