@@ -13,9 +13,11 @@ Ce dossier est cumulatif : si un dossier existe déjà dans le repo, on l'enrich
 - Pourquoi classée hors cible (en 1 phrase) :
 
 ### 2. Mots-clés extraits de l'offre
-Lister les termes saillants, par catégorie :
+> Commencer par les **compétences obligatoires + préférées** affichées en bas du mail Malt : ce sont les mots-clés exacts que Malt a utilisés pour matcher, donc les premiers suspects du mis-ranking.
+- **Compétences obligatoires (Malt)** : (ex: Construction, Négoce)
+- **Compétences préférées (Malt)** : (ex: Amélioration des process, Acheteur)
 - **Rôle** : (ex: community manager, SEO, dev, designer...)
-- **Compétences** : 
+- **Compétences / livrables** : 
 - **Secteur** :
 - **Outils / stack** :
 
