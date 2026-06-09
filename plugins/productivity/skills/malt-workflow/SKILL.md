@@ -1,0 +1,69 @@
+---
+name: malt-workflow
+description: Workflow Malt complet de bout en bout pour Romain (freelance GTM / growth). À lancer quand l'utilisateur colle une offre / opportunité Malt et veut tout traiter d'un coup. Le skill analyse l'entreprise, lit le profil pro (preuves, positionnement, ICP) dans le repo, juge le fit, puis : si l'offre est PERTINENTE, produit (1) la réponse Malt vendeuse (objectif = décrocher l'entretien) et (2) un email de renfort direct au décideur (objet "Votre futur {poste}"). Si l'offre est HORS CIBLE, produit quand même une réponse (jamais de refus sec) PLUS un "dossier Malt" qui analyse les mots-clés de l'offre pour diagnostiquer où le profil Malt a mal rancé. Utiliser sur "traite cette offre Malt", "workflow Malt", "j'ai reçu une offre Malt", "réponse + email Malt", "offre Malt hors cible".
+---
+
+# Malt Workflow
+
+Traitement complet d'une offre Malt, de l'analyse jusqu'aux livrables prêts à envoyer.
+
+S'appuie sur deux skills existants :
+- **`malt-response`** pour la logique de réponse vendeuse (à charger / appliquer).
+- **`write-like-me`** + son `voice-profile.md` pour la voix (obligatoire sur toute sortie).
+
+## Objectif
+Doubler les chances de décrocher l'entretien sur chaque offre Malt qui en vaut la peine, et transformer chaque offre hors cible en donnée d'optimisation du profil Malt. On ne livre jamais un refus sec.
+
+## Entrées (ce que l'utilisateur fournit)
+1. **L'offre Malt** (texte collé ou lien). Obligatoire.
+2. **Le mail du décideur** (optionnel, fourni quand l'utilisateur l'a scrapé lui-même via LinkedIn après réponse Malt). Si absent, on prépare quand même l'email de renfort avec un placeholder, prêt à envoyer dès qu'il a le mail.
+3. Le nom / prénom du décideur si connu.
+
+Ne JAMAIS chercher le mail soi-même : l'utilisateur s'en charge (nom + prénom obtenus sur Malt, ajout LinkedIn, scrape). Le skill produit le contenu.
+
+## Étape 1 : analyser l'offre + l'entreprise + charger le profil
+1. Lis l'offre Malt : rôle exact recherché, besoin de fond, secteur, contexte, mots-clés.
+2. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
+3. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
+4. **Charge le profil pro de l'utilisateur** depuis le repo courant (RepoPro) : docs "Profil Professionnel", "Comment je me vends", "Mes preuves", "Qui je suis", ou le Notion équivalent. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
+
+## Étape 2 : juger le fit
+ICP cible : scale-up, SaaS B2B, fintech, plateforme tech qui veut scaler son acquisition sans recruter une équipe growth/sales ops.
+Rôle cœur : acquisition B2B multicanale, GTM engineering, automatisation (n8n/Make), outbound (cold email + LinkedIn), paid (Meta/Google), agents IA, CRM ops.
+
+Classe : **dans le mille** / **bon rôle, secteur adjacent** / **rôle partiel** / **hors cœur**.
+
+→ **Pertinent** (les trois premiers) : va à l'Étape 3A.
+→ **Hors cible** (hors cœur) : va à l'Étape 3B. On répond quand même.
+
+## Étape 3A : offre PERTINENTE -> deux livrables
+
+### Livrable 1 : la réponse Malt
+Applique entièrement `malt-response` (Règle d'or + structure gagnante) :
+remercier d'avoir été sélectionné, reformuler le vrai enjeu, crédibilité par une preuve proche du besoin + un chiffre défendable, teaser consultatif (sans promettre d'angles pré-travaillés), CTA vers 30 min. Vendeuse, aérée, voix de Romain, zéro tiret cadratin. Objectif = décrocher l'entretien (étape 1 du closing).
+
+### Livrable 2 : l'email de renfort direct
+Second canal pour appuyer la candidature déjà déposée sur Malt. Voir le gabarit complet dans `references/email-template.md`.
+- **Objet** : `Votre futur {nom du poste recherché par l'offre}`.
+- **Ouverture** : "Bonjour, je me permets de vous recontacter via ce canal pour appuyer ma candidature comme répondu via Malt" (formulation ajustable selon le contenu de la réponse Malt).
+- **Corps** : court, une preuve forte alignée sur l'offre, rappel de la dispo, CTA léger. Cohérent avec la réponse Malt (ne pas se contredire, ne pas tout répéter).
+- Si le mail du décideur n'est pas fourni : laisser `{mail décideur}` en placeholder et le signaler.
+
+## Étape 3B : offre HORS CIBLE -> réponse + dossier Malt
+
+### Livrable 1 : la réponse (jamais de refus)
+On répond quand même, sans "non" sec et sans "je ne suis pas le bon profil". On reformule la limite en force + solution, on garde la porte ouverte (cf. `malt-response` Étape 3, critère hors scope). Court, propre, voix de Romain.
+
+### Livrable 2 : le dossier Malt (diagnostic de ranking)
+Quand une offre arrive hors cœur, c'est un signal que le profil Malt **rance trop large** (cf. note "profil lu trop large"). On capitalise. Voir le gabarit dans `references/dossier-malt.md`. Il contient :
+1. **Les mots-clés de l'offre** extraits (rôle, compétences, secteur, outils).
+2. **Le mapping mots-clés -> profil** : lesquels matchent vraiment le cœur de Romain, lesquels sont du bruit qui le fait remonter à tort.
+3. **Diagnostic de mis-ranking** : quel terme / compétence trop générique de son profil Malt a probablement déclenché ce mauvais matching.
+4. **Recommandations d'évolution du profil** : ce qu'il faut resserrer, retirer ou préciser sur Malt pour mieux cibler l'ICP.
+
+Le dossier s'enrichit offre après offre (capitalise, ne repars pas de zéro si un dossier existe déjà dans le repo).
+
+## Sortie
+- **Pertinent** : la réponse Malt + l'email de renfort (objet + corps), prêts à coller. Plus une ligne sur le niveau de fit retenu.
+- **Hors cible** : la réponse + le dossier Malt (analyse mots-clés + diagnostic ranking + reco profil).
+- Toujours : voix de Romain, aéré, zéro tiret cadratin, zéro superlatif creux, aucun chiffre inventé.
