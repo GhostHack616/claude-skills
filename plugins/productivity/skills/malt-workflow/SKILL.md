@@ -1,6 +1,6 @@
 ---
 name: malt-workflow
-description: Workflow Malt complet de bout en bout pour Romain (freelance GTM / growth). À lancer quand l'utilisateur colle une offre / opportunité Malt et veut tout traiter d'un coup. Le skill analyse l'entreprise, lit le profil pro (preuves, positionnement, ICP) dans le repo, juge le fit, puis : si l'offre est PERTINENTE, produit (1) la réponse Malt vendeuse (objectif = décrocher l'entretien) et (2) un email de renfort direct au décideur (objet "Votre futur {poste}"). Si l'offre est HORS CIBLE, produit quand même une réponse (jamais de refus sec) PLUS un "dossier Malt" qui analyse les mots-clés de l'offre pour diagnostiquer où le profil Malt a mal rancé. Utiliser sur "traite cette offre Malt", "workflow Malt", "j'ai reçu une offre Malt", "réponse + email Malt", "offre Malt hors cible".
+description: Workflow Malt complet de bout en bout pour Romain (freelance GTM / growth). À lancer quand l'utilisateur veut traiter une offre / opportunité Malt. Le skill va chercher l'offre LUI-MÊME dans la boîte mail (connecteur Gmail, notification Malt), l'utilisateur n'a rien à coller. Il analyse l'entreprise, lit le profil pro (preuves, positionnement, ICP) dans le repo, juge le fit, puis : si l'offre est PERTINENTE, produit (1) la réponse Malt vendeuse (objectif = décrocher l'entretien) et (2) un email de renfort direct au décideur (objet "Votre futur {poste}"). Si l'offre est HORS CIBLE, produit quand même une réponse (jamais de refus sec) PLUS un "dossier Malt" qui analyse les mots-clés de l'offre pour diagnostiquer où le profil Malt a mal rancé. Utiliser sur "traite ma dernière offre Malt", "workflow Malt", "j'ai reçu une offre Malt", "regarde mes offres Malt", "réponse + email Malt".
 ---
 
 # Malt Workflow
@@ -14,18 +14,19 @@ S'appuie sur deux skills existants :
 ## Objectif
 Doubler les chances de décrocher l'entretien sur chaque offre Malt qui en vaut la peine, et transformer chaque offre hors cible en donnée d'optimisation du profil Malt. On ne livre jamais un refus sec.
 
-## Entrées (ce que l'utilisateur fournit)
-1. **L'offre Malt** (texte collé ou lien). Obligatoire.
-2. **Le mail du décideur** (optionnel, fourni quand l'utilisateur l'a scrapé lui-même via LinkedIn après réponse Malt). Si absent, on prépare quand même l'email de renfort avec un placeholder, prêt à envoyer dès qu'il a le mail.
-3. Le nom / prénom du décideur si connu.
+## Entrées
+Le skill va chercher l'offre lui-même. L'utilisateur n'a rien à coller.
+1. **L'offre Malt** : le skill la lit directement dans la boîte mail de l'utilisateur via le connecteur Gmail (Malt envoie une notification par mail à chaque opportunité). Par défaut, traiter la dernière offre Malt reçue ; si l'utilisateur en vise une précise (entreprise, date), cibler celle-là.
+2. **Le mail du décideur** (optionnel) : fourni par l'utilisateur quand il l'a scrapé lui-même via LinkedIn après avoir répondu sur Malt. Si absent, préparer quand même l'email de renfort avec un placeholder `{mail décideur}`, prêt à envoyer.
 
-Ne JAMAIS chercher le mail soi-même : l'utilisateur s'en charge (nom + prénom obtenus sur Malt, ajout LinkedIn, scrape). Le skill produit le contenu.
+Ne JAMAIS chercher le mail du décideur soi-même : l'utilisateur s'en charge (nom + prénom obtenus sur Malt, ajout LinkedIn, scrape). Le skill récupère l'offre et produit le contenu.
 
-## Étape 1 : analyser l'offre + l'entreprise + charger le profil
-1. Lis l'offre Malt : rôle exact recherché, besoin de fond, secteur, contexte, mots-clés.
-2. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
-3. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
-4. **Charge le profil pro de l'utilisateur** depuis le repo courant (RepoPro) : docs "Profil Professionnel", "Comment je me vends", "Mes preuves", "Qui je suis", ou le Notion équivalent. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
+## Étape 1 : récupérer l'offre + analyser l'entreprise + charger le profil
+1. **Récupère l'offre dans Gmail** : cherche les mails Malt (expéditeur Malt, objet type "nouvelle opportunité / mission"), ouvre le thread, extrais le contenu de l'offre. Par défaut la plus récente non traitée.
+2. Lis l'offre : rôle exact recherché, besoin de fond, secteur, contexte, mots-clés.
+3. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
+4. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
+5. **Charge le profil pro de l'utilisateur** depuis le repo courant (RepoPro) : docs "Profil Professionnel", "Comment je me vends", "Mes preuves", "Qui je suis", ou le Notion équivalent. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
 
 ## Étape 2 : juger le fit
 ICP cible : scale-up, SaaS B2B, fintech, plateforme tech qui veut scaler son acquisition sans recruter une équipe growth/sales ops.
