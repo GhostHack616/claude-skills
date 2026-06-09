@@ -5,7 +5,7 @@ description: Workflow Malt complet de bout en bout pour Romain (freelance GTM / 
 
 # Malt Workflow
 
-Traitement complet d'une offre Malt, de l'analyse jusqu'aux livrables prêts à envoyer.
+Traitement complet d'une offre Malt, de l'analyse jusqu'aux livrables prêts à envoyer. Le skill se cale sur l'activité réelle de Romain (profil + stats dans RepoPro) et s'optimise offre après offre via un journal win-loss.
 
 S'appuie sur deux skills déjà installés dans le repo RomainPro :
 - **`malt-response`** pour la logique de réponse vendeuse (à charger / appliquer).
@@ -30,12 +30,15 @@ Ne JAMAIS chercher le mail du décideur soi-même : l'utilisateur s'en charge (n
 4. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
 5. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
 6. **Charge le profil.** Le profil de Romain, c'est **tout le repo RomainPro** : lire en priorité `comment-je-me-vends.md`, `mes-preuves.md`, `capture-a-chaud.md`, le "Profil Professionnel", et tout doc de positionnement / cas client présent. Notion ("Profil Professionnel Romain") en secours si le repo ne suffit pas. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
+7. **Charge les stats / l'activité** depuis `RepoPro/stats/` (s'ils existent) : `malt-plateforme.md` (taux de réponse, conversion par secteur, note), `historique-missions.md` (sweet spot réel, TJM par type), `win-loss.md` (le journal des offres déjà traitées, gagnées/perdues et pourquoi). Plus les résultats clients dans `mes-preuves.md`. Ces stats servent à juger sur la **réalité** de Romain, pas sur la théorie. Si les fichiers n'existent pas encore, le signaler une fois et continuer sur le profil seul (templates dans `references/repopro-stats-templates/`).
 
 ## Étape 2 : juger le fit
 ICP cible : scale-up, SaaS B2B, fintech, plateforme tech qui veut scaler son acquisition sans recruter une équipe growth/sales ops.
 Rôle cœur : acquisition B2B multicanale, GTM engineering, automatisation (n8n/Make), outbound (cold email + LinkedIn), paid (Meta/Google), agents IA, CRM ops.
 
 Classe : **dans le mille** / **bon rôle, secteur adjacent** / **rôle partiel** / **hors cœur**.
+
+**Pondère avec les stats** (si dispo) : un secteur où Romain convertit bien (malt-plateforme / win-loss) renforce le fit ; un type d'offre qu'il reçoit mais ne convertit jamais le nuance, même si la théorie dit "dans le mille". Le jugement final croise ICP théorique ET historique réel. Signale en une ligne ce que les stats apportent au verdict.
 
 → **Pertinent** (les trois premiers) : va à l'Étape 3A.
 → **Hors cible** (hors cœur) : va à l'Étape 3B. On répond quand même.
@@ -45,6 +48,8 @@ Classe : **dans le mille** / **bon rôle, secteur adjacent** / **rôle partiel**
 ### Livrable 1 : la réponse Malt
 Applique entièrement `malt-response` (Règle d'or + structure gagnante) :
 remercier d'avoir été sélectionné, reformuler le vrai enjeu, crédibilité par une preuve proche du besoin + un chiffre défendable, teaser consultatif (sans promettre d'angles pré-travaillés), CTA vers 30 min. Vendeuse, aérée, voix de Romain, zéro tiret cadratin. Objectif = décrocher l'entretien (étape 1 du closing).
+
+**Choix de la preuve via les stats** : prendre la preuve / le cas client qui a le mieux converti sur ce type d'offre (mes-preuves + win-loss), pas au hasard. Si un angle a déjà gagné sur une offre similaire (win-loss), réutiliser cette logique.
 
 ### Livrable 2 : l'email de renfort direct
 Second canal pour appuyer la candidature déjà déposée sur Malt. Voir le gabarit complet dans `references/email-template.md`.
@@ -65,9 +70,12 @@ Quand une offre arrive hors cœur, c'est un signal que le profil Malt **rance tr
 3. **Diagnostic de mis-ranking** : quel terme / compétence trop générique de son profil Malt a probablement déclenché ce mauvais matching.
 4. **Recommandations d'évolution du profil** : ce qu'il faut resserrer, retirer ou préciser sur Malt pour mieux cibler l'ICP.
 
-Le dossier s'enrichit offre après offre (capitalise, ne repars pas de zéro si un dossier existe déjà dans le repo).
+Le dossier s'enrichit offre après offre (capitalise, ne repars pas de zéro si un dossier existe déjà dans le repo). Croise le diagnostic avec `win-loss.md` : si le même type d'offre hors cible revient et n'est jamais converti, c'est une confirmation forte du mis-ranking, à remonter dans la reco profil.
+
+## Étape 4 : boucler (optimisation continue)
+Quelle que soit l'issue (pertinent ou hors cible), **ajouter une ligne dans `RepoPro/stats/win-loss.md`** : date, entreprise, rôle, secteur, fit jugé, angle utilisé, RDV/gagnée en attente. C'est ce journal qui fait que le skill s'améliore offre après offre. Mettre à jour la section "Patterns observés" du fichier si un signal net se dégage. Ne rien écrire de privé dans le repo public claude-skills : ces données restent dans RepoPro.
 
 ## Sortie
-- **Pertinent** : la réponse Malt + l'email de renfort (objet + corps), prêts à coller. Plus une ligne sur le niveau de fit retenu.
+- **Pertinent** : la réponse Malt + l'email de renfort (objet + corps), prêts à coller. Plus une ligne sur le niveau de fit retenu (et ce que les stats y ont changé).
 - **Hors cible** : la réponse + le dossier Malt (analyse mots-clés + diagnostic ranking + reco profil).
-- Toujours : voix de Romain, aéré, zéro tiret cadratin, zéro superlatif creux, aucun chiffre inventé.
+- **Toujours** : une ligne ajoutée au journal win-loss. Voix de Romain, aéré, zéro tiret cadratin, zéro superlatif creux, aucun chiffre inventé.
