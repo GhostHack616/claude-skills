@@ -7,26 +7,29 @@ description: Workflow Malt complet de bout en bout pour Romain (freelance GTM / 
 
 Traitement complet d'une offre Malt, de l'analyse jusqu'aux livrables prêts à envoyer.
 
-S'appuie sur deux skills existants :
+S'appuie sur deux skills déjà installés dans le repo RomainPro :
 - **`malt-response`** pour la logique de réponse vendeuse (à charger / appliquer).
 - **`write-like-me`** + son `voice-profile.md` pour la voix (obligatoire sur toute sortie).
+
+Si l'un des deux n'est pas chargé dans la session, le signaler en une ligne et appliquer au minimum les règles voix de base (vouvoiement, aéré, zéro tiret cadratin, zéro superlatif, aucun chiffre inventé) plutôt que de produire du générique.
 
 ## Objectif
 Doubler les chances de décrocher l'entretien sur chaque offre Malt qui en vaut la peine, et transformer chaque offre hors cible en donnée d'optimisation du profil Malt. On ne livre jamais un refus sec.
 
 ## Entrées
 Le skill va chercher l'offre lui-même. L'utilisateur n'a rien à coller.
-1. **L'offre Malt** : le skill la lit directement dans la boîte mail de l'utilisateur via le connecteur Gmail (Malt envoie une notification par mail à chaque opportunité). Par défaut, traiter la dernière offre Malt reçue ; si l'utilisateur en vise une précise (entreprise, date), cibler celle-là.
+1. **L'offre Malt** : le skill la lit directement dans la boîte mail via le connecteur Gmail (Malt envoie une notification à chaque opportunité). Par défaut : la plus récente. Si l'utilisateur dit "les deux dernières", en traiter deux.
 2. **Le mail du décideur** (optionnel) : fourni par l'utilisateur quand il l'a scrapé lui-même via LinkedIn après avoir répondu sur Malt. Si absent, préparer quand même l'email de renfort avec un placeholder `{mail décideur}`, prêt à envoyer.
 
 Ne JAMAIS chercher le mail du décideur soi-même : l'utilisateur s'en charge (nom + prénom obtenus sur Malt, ajout LinkedIn, scrape). Le skill récupère l'offre et produit le contenu.
 
 ## Étape 1 : récupérer l'offre + analyser l'entreprise + charger le profil
-1. **Récupère l'offre dans Gmail** : cherche les mails Malt (expéditeur Malt, objet type "nouvelle opportunité / mission"), ouvre le thread, extrais le contenu de l'offre. Par défaut la plus récente non traitée.
-2. Lis l'offre : rôle exact recherché, besoin de fond, secteur, contexte, mots-clés.
-3. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
-4. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
-5. **Charge le profil pro de l'utilisateur** depuis le repo courant (RepoPro) : docs "Profil Professionnel", "Comment je me vends", "Mes preuves", "Qui je suis", ou le Notion équivalent. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
+1. **Récupère l'offre dans Gmail.** Cherche les mails de Malt (expéditeur en `@malt.com`). Ne retenir que les **notifications d'opportunité / nouvelle mission** : écarter les autres mails Malt (factures, paiements, messages de la plateforme, relances admin, newsletters). Ouvrir le thread, extraire le contenu de l'offre. Par défaut la plus récente.
+2. **Annoncer en une ligne l'offre retenue** (entreprise + intitulé + date) avant de dérouler, pour que l'utilisateur puisse rediriger si ce n'est pas la bonne. Ne pas bloquer en attente : il déclenche vite, enchaîner sauf objection.
+3. Lis l'offre : rôle exact recherché, besoin de fond, secteur, contexte, mots-clés.
+4. **Identifie le nom du poste recherché** tel qu'il sert dans l'offre (ex: "Growth Manager", "Traffic Manager", "Consultant acquisition B2B"). Il servira d'objet à l'email de renfort.
+5. Analyse l'entreprise (taille, secteur, modèle, stade, enjeu d'acquisition probable). Utilise ce qui est dans l'offre ; un WebSearch léger si besoin et si le réseau le permet.
+6. **Charge le profil.** Le profil de Romain, c'est **tout le repo RomainPro** : lire en priorité `comment-je-me-vends.md`, `mes-preuves.md`, `capture-a-chaud.md`, le "Profil Professionnel", et tout doc de positionnement / cas client présent. Notion ("Profil Professionnel Romain") en secours si le repo ne suffit pas. C'est la source des **vraies** preuves, chiffres, positionnement, ICP, TJM. N'invente jamais un chiffre.
 
 ## Étape 2 : juger le fit
 ICP cible : scale-up, SaaS B2B, fintech, plateforme tech qui veut scaler son acquisition sans recruter une équipe growth/sales ops.
