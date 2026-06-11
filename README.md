@@ -8,9 +8,10 @@
 
 ## Index des skills
 
-### Plugin `productivity` (6 skills) — mes skills perso
+### Plugin `productivity` (7 skills) — mes skills perso
 | Skill | Rôle |
 |---|---|
+| `brainstorm` | Brainstorm structuré : interrogatoire serré de grill-me (1 question à la fois, hypothèses challengées, réponse recommandée) + flux design de superpowers (contexte, 2-3 approches, design section par section, doc validé). Pour idées code ET business/growth. |
 | `malt-workflow` | Workflow Malt à 2 modes. **Offre** : va chercher l'offre dans Gmail, lit profil + stats (RomainPro), juge le fit, produit la réponse Malt + un email de renfort, ou un dossier de ranking si hors cible. **Profil** : audite le compte Malt (titre, mots-clés, description, TJM) et sort un plan de modif en cas de disette ou sur demande. S'optimise via les journaux win-loss + changements de profil. |
 | `malt-response` | Playbook de réponse Malt gagnante (méthode pure, vendeuse, objectif = décrocher l'entretien). |
 | `write-like-me` | Réécrit dans ma voix (anti-IA, zéro tiret cadratin). **Contient `voice-profile.md` = la source de vérité de ma voix.** |
