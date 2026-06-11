@@ -17,7 +17,7 @@
     {
       "name": "productivity",
       "source": "./plugins/productivity",
-      "description": "Productivity skills. grill-me (stress-test a plan via relentless interview), handoff (compact a conversation into a handoff doc), write-a-skill (author new skills properly), write-like-me (rewrite in the user's own voice, no AI tells), malt-response (winning Malt proposal playbook), malt-workflow (end-to-end Malt offer handling: pulls the offer from Gmail, judges fit, drafts the reply + a direct reinforcement email, or builds a profile-ranking dossier when off-target)."
+      "description": "Productivity skills. brainstorming (divergent-then-convergent ideation on any topic), grill-me (stress-test a plan via relentless interview), handoff (compact a conversation into a handoff doc), write-a-skill (author new skills properly), write-like-me (rewrite in the user's own voice, no AI tells), malt-response (winning Malt proposal playbook), malt-workflow (end-to-end Malt offer handling: pulls the offer from Gmail, judges fit, drafts the reply + a direct reinforcement email, or builds a profile-ranking dossier when off-target)."
     }
   ]
 }
