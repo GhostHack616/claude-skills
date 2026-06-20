@@ -22,8 +22,9 @@
 ### Plugin `lemlist` (38 skills) — librairie GTM / outbound
 ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking, hygiène CRM, automatisation n8n. Source : l3mpire/claude-skills (MIT), moins le skill spécifique Claap.
 
-### Plugin `tools` (1 skill)
-`youtube-transcript` : lit le transcript d'une vidéo YouTube en texte brut.
+### Plugin `tools` (2 skills)
+- `youtube-transcript` : lit le transcript d'une vidéo YouTube en texte brut.
+- `scrapling` : scraping web via la lib Scrapling (arbre de décision Fetcher, bypass Cloudflare, sessions login, parsing HTML). Requiert un réseau ouvert (local/VPS), pas un sandbox web bridé. Adapté de Cedriccmh/claude-code-skill-scrapling (MIT).
 
 ### `bulldozer/` (10 skills bruts, hors plugin)
 5 Meta Ads + 5 Google Ads (B2B paid acquisition). Cloné depuis la page Notion publique de Bulldozer Collective. Non packagés en plugin.

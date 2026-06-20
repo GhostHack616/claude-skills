@@ -1,7 +1,7 @@
 {
   "name": "tools",
-  "description": "General-purpose technical skills (non-marketing). Currently: youtube-transcript — read any YouTube video's transcript as plain text, no API key or cookie.",
-  "version": "1.0.0",
+  "description": "General-purpose technical skills (non-marketing). youtube-transcript: read any YouTube video's transcript as plain text, no API key or cookie. scrapling: web scraping / data extraction via the Scrapling lib (Fetcher decision tree, Cloudflare bypass, login sessions, HTML parsing); needs an open network (local/VPS), not a locked-down web sandbox.",
+  "version": "1.1.0",
   "author": {
     "name": "GhostHack616"
   },
