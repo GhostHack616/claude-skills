@@ -81,6 +81,7 @@ Champs obligatoires cookie navigateur : `name`, `value`, `domain`, `path`.
 | Parsing seul | `templates/parse_only.py` | HTML déjà en main |
 
 Pour crawl/Spider, adaptive scraping, MCP server, proxy : voir `references/upstream.md`.
+Pour exposer scrapling en **connecteur MCP distant** (app Claude.ai web/mobile, piloter depuis le tél) : voir `references/remote-vps-connector.md`.
 
 ---
 *Adapté de Cedriccmh/claude-code-skill-scrapling (MIT), lib D4Vinci/Scrapling (Karim Shoair). Traduit/condensé FR, sans données privées.*
