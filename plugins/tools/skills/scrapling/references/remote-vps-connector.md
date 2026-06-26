@@ -65,5 +65,8 @@ Réglages → Connecteurs → Ajouter un connecteur personnalisé → URL `https
 1. **Auth / exposition.** Ce MCP n'implémente pas OAuth. Les connecteurs Claude.ai s'attendent souvent à de l'OAuth ou un endpoint ouvert. Tant que l'auth n'est pas en place, l'endpoint est **public** : au minimum, utiliser un sous-domaine/chemin non devinable, restreindre par IP (firewall VPS) ou ajouter une couche d'auth devant Caddy, et ne pas l'exposer largement. Durcissement propre = mettre un proxy OAuth devant (à faire dans un second temps).
 2. **Plan Claude.ai.** Les connecteurs personnalisés distants nécessitent un plan payant (Pro/Max/Team/Enterprise selon l'offre du moment) et la fonctionnalité peut s'appeler différemment. Vérifier dans tes réglages que "connecteur personnalisé / custom connector" est dispo sur ton compte.
 
+## Déclencher depuis n8n
+Ce connecteur MCP est fait pour l'app Claude.ai. Pour piloter le même VPS depuis **n8n** (« l'appli N »), ne pas réutiliser `/mcp` (JSON-RPC pénible en HTTP) : ajouter un petit endpoint REST `/scrape` à côté. Recette dédiée → `n8n-trigger.md`.
+
 ## Rappel
 Pour Claude Code (terminal/app), pas besoin de tout ça : le skill `scrapling` (ce dossier) suffit, ou la config stdio Claude Desktop (`uvx scrapling-fetch-mcp`). Le serveur distant ne sert que pour l'app web/mobile.
