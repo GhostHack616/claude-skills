@@ -33,6 +33,16 @@ description: Create new agent skills with proper structure, progressive disclosu
    - Test 2-3 anti-trigger requests and check it would NOT trigger
    - If activation fails, the triggers in the description are too vague — go back to step 1 and sharpen them
 
+## Cadrage avant production (reverse prompting)
+
+Décider, pour CHAQUE skill, s'il doit poser des questions **avant** de produire. Ce n'est pas un réflexe à mettre partout : on l'ajoute **seulement quand c'est important ou nécessaire**.
+
+- **Oui (jugement / création / stratégie)** : quand le résultat dépend du contexte de l'utilisateur et que produire à l'aveugle donne du générique qu'il rejettera. Le skill ouvre alors par **2-4 questions ciblées en une seule passe**, puis produit. Pour un cas vraiment stratégique (offre, audit), les questions peuvent être un peu plus poussées, jamais un interrogatoire infini.
+- **Non (mécanique / déterministe)** : quand l'input suffit (URL → transcript, formatage, conversion). Pas de questions, on exécute directement. Y mettre du cadrage = friction inutile.
+
+Formulation type à insérer dans le SKILL.md concerné, **seulement si pertinent** :
+> **Cadrage si nécessaire.** S'il manque une info qui change le résultat, poser 1 à 3 questions courtes avant de produire. Sinon, exécuter directement.
+
 ## Skill Structure
 
 ```
@@ -121,6 +131,7 @@ Split into separate files when:
 After drafting, verify:
 
 - [ ] Description includes triggers ("Use when...")
+- [ ] Cadrage tranché : questions de cadrage **uniquement** si le résultat dépend du contexte (sinon exécution directe, pas de friction)
 - [ ] Anti-triggers defined if the skill overlaps with an existing one
 - [ ] Output format and strict rules (what must never appear) captured if the user has them
 - [ ] Stress-tested: triggers on 5 rephrasings, stays silent on anti-trigger requests

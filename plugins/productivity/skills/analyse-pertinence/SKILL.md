@@ -31,6 +31,8 @@ Lis tout le contenu renvoyé sur stdout avant de juger.
 
 ## Étape 2 — Juger la pertinence (contre le profil de Romain)
 
+> **Cadrage si nécessaire.** Si l'usage visé n'est pas évident et qu'il changerait le verdict (veille pure vs repurposing contenu vs signal prospect), poser 1 question courte avant de trancher. Sinon, juger directement avec les 5 axes ci-dessous.
+
 **Profil de référence (à mobiliser pour le verdict) :** freelance / consultant **growth & outbound B2B**.
 Sujets cœur :
 - **Cold email / outbound** (lemlist) : séquences, délivrabilité, reply rate, ICP, copywriting.

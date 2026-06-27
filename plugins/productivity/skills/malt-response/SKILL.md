@@ -12,6 +12,8 @@ Une réponse Malt n'est PAS un audit ni un rapport. C'est du **top of funnel sur
 1. Lis le brief Malt : besoin, rôle, secteur, contexte.
 2. Lis le **profil pro de l'utilisateur** (doc "Profil Professionnel" / sections "Comment je me vends", "Mes preuves", "Qui je suis", dans le repo ou Notion). C'est la source de ses **vraies** preuves, chiffres, positionnement, ICP et punchlines. Utilise SES chiffres réels, n'invente jamais rien.
 
+> **Cadrage si nécessaire.** Si le brief est ambigu ou s'il manque une info qui change l'angle (le vrai enjeu, la preuve à mettre en avant), poser 1 à 2 questions courtes avant de rédiger. Si le brief et le profil suffisent, produire directement.
+
 ## Étape 2 : juger le fit
 - **ICP cible** : scale-up, SaaS B2B, fintech, plateforme tech qui veut scaler son acquisition sans recruter une équipe growth/sales ops.
 - **Rôle cœur** : acquisition B2B multicanale, GTM engineering / systèmes d'acquisition, automatisation (n8n/Make/Zapier), outbound (cold email + LinkedIn), agents IA, CRM ops.
