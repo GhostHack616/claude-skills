@@ -12,7 +12,7 @@
     {
       "name": "tools",
       "source": "./plugins/tools",
-      "description": "General-purpose technical skills. youtube-transcript: read any YouTube video's transcript as plain text (yt subtitles), no API key or cookie. scrapling: web scraping via the Scrapling lib (Fetcher decision tree, Cloudflare bypass, login sessions, HTML parsing); needs an open network (local/VPS)."
+      "description": "General-purpose technical skills. youtube-transcript: read any YouTube video's transcript as plain text (yt subtitles), no API key or cookie. apify-fetch: reliable web fetching via Apify (residential IPs, no 403) — YouTube transcripts + full-site crawl to clean markdown; replaces Supadata; needs APIFY_TOKEN. scrapling: web scraping via the Scrapling lib (Fetcher decision tree, Cloudflare bypass, login sessions, HTML parsing); needs an open network (local/VPS)."
     },
     {
       "name": "productivity",

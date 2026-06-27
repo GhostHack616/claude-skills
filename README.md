@@ -22,8 +22,9 @@
 ### Plugin `lemlist` (38 skills) — librairie GTM / outbound
 ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking, hygiène CRM, automatisation n8n. Source : l3mpire/claude-skills (MIT), moins le skill spécifique Claap.
 
-### Plugin `tools` (2 skills)
-- `youtube-transcript` : lit le transcript d'une vidéo YouTube en texte brut.
+### Plugin `tools` (3 skills)
+- `youtube-transcript` : lit le transcript d'une vidéo YouTube en texte brut (sans clé API, mais bloqué en 403 sur IP datacenter).
+- `apify-fetch` : récupération web fiable via Apify (IP résidentielles → pas de 403). Deux usages : transcript YouTube (vidéo/chaîne/playlist) et crawl d'un site entier → markdown propre. **Remplace Supadata.** Requiert la variable d'env `APIFY_TOKEN`.
 - `scrapling` : scraping web via la lib Scrapling (arbre de décision Fetcher, bypass Cloudflare, sessions login, parsing HTML). Requiert un réseau ouvert (local/VPS), pas un sandbox web bridé. Adapté de Cedriccmh/claude-code-skill-scrapling (MIT).
 
 ### `bulldozer/` (10 skills bruts, hors plugin)
