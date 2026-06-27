@@ -1,7 +1,7 @@
 {
   "name": "productivity",
-  "description": "Productivity skills. grill-me: stress-test a plan via relentless interview. handoff: compact a conversation into a handoff doc. write-a-skill: author new skills. write-like-me: rewrite in the user's voice (no AI tells). malt-response: Malt proposal playbook. malt-workflow: end-to-end Malt offer handling (Gmail intake, fit, reply + reinforcement email, or off-target ranking dossier) plus a profile-audit mode. brainstorm: structured brainstorm (grill-me interrogation + superpowers design flow) turning a fuzzy idea into a validated design or action plan.",
-  "version": "1.2.0",
+  "description": "Productivity skills. analyse-pertinence: fetch a URL's content (YouTube video or website) via Apify, then judge whether it's relevant for Romain (growth/outbound profile) and how to reuse it; needs APIFY_TOKEN. grill-me: stress-test a plan via relentless interview. handoff: compact a conversation into a handoff doc. write-a-skill: author new skills. write-like-me: rewrite in the user's voice (no AI tells). malt-response: Malt proposal playbook. malt-workflow: end-to-end Malt offer handling (Gmail intake, fit, reply + reinforcement email, or off-target ranking dossier) plus a profile-audit mode. brainstorm: structured brainstorm (grill-me interrogation + superpowers design flow) turning a fuzzy idea into a validated design or action plan.",
+  "version": "1.3.0",
   "author": {
     "name": "GhostHack616"
   },
