@@ -13,6 +13,13 @@
 
 ## Décisions
 - Mémoire = ce fichier `CLAUDE.md` (auto-chargé). Pas de hook pour l'instant.
+- Cible = **cloud / Claude Code web** (pas local Obsidian).
+
+## Système mémoire (cloud)
+- Ce fichier s'auto-charge à chaque session = ma mémoire. **Doit vivre sur `main`** pour se recharger (les sessions web ouvrent `main`).
+- **Règle de capture** : en fin de session utile → je mets à jour ce fichier (Leçons / décisions) puis **commit + push**. Le stop-hook rappelle de committer.
+- Détails longs → dossier `notes/` (lu à la demande), pas ici. Garder ce fichier **court**.
+- En web : pas d'Obsidian/MCP local → « déposer une source » = committer un fichier dans le repo.
 
 ## Leçons (à enrichir)
 - _(rien encore)_
