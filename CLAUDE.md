@@ -1,25 +1,18 @@
 # Mémoire de Claude — repo claude-skills
 
-> Fichier lu automatiquement à chaque session. Le garder **court**. Les détails longs vont dans `notes/`.
+> Fichier lu automatiquement à chaque session. Garder **court**. **Contexte repo uniquement** — la mémoire perso complète vit dans le repo cerveau **privé** de l'utilisateur (pas ici : repo public).
 
-## L'utilisateur
-- Parle **français**. **Veut des réponses TRÈS concises**, droit au but. (Pas de pavés.)
-- Bosse sur des skills + automatisations IA (Claude Code, n8n, MCP).
+## L'utilisateur (minimum)
+- Parle **français**. **Veut des réponses TRÈS concises**, droit au but.
 
-## Projets & contexte
-- **`claude-skills`** : marketplace de skills (plugins `tools` / `productivity` / `lemlist`).
-- **Scraping** : pile retenue = **Scrapling** + **Apify** (= Crawlee). Ordre quand un fetch échoue : read-API plateforme → Scrapling normal → Scrapling stealth (Cloudflare) → Apify/Firecrawl. Maillon faible = skill `website-scraper` (requests basique).
-- **Higgsfield motion-site** : réalisable (MCP réel + Claude code le site, pas de skill magique). **En pause, à reprendre.**
+## Ce repo
+- Marketplace **publique** de skills (plugins `tools` / `productivity` / `lemlist`).
+- Maillon faible connu : skill `website-scraper` (requests basique, lâche sur Cloudflare).
 
 ## Décisions
-- Mémoire = ce fichier `CLAUDE.md` (auto-chargé). Pas de hook pour l'instant.
-- Cible = **cloud / Claude Code web** (pas local Obsidian).
+- **Mémoire perso + notes → repo privé dédié** (multi-repos ; ici on ne garde que le contexte du repo).
+- **Scraping** : pile actée = **Scrapling + Apify** (=Crawlee). Escalade quand un fetch échoue : read-API plateforme → Scrapling normal → Scrapling stealth (Cloudflare) → Apify/Firecrawl.
+- Obsidian : écarté pour l'instant (cloud-first) ; le pattern raw/→wiki marche sur de simples fichiers git.
 
-## Système mémoire (cloud)
-- Ce fichier s'auto-charge à chaque session = ma mémoire. **Doit vivre sur `main`** pour se recharger (les sessions web ouvrent `main`).
-- **Règle de capture** : en fin de session utile → je mets à jour ce fichier (Leçons / décisions) puis **commit + push**. Le stop-hook rappelle de committer.
-- Détails longs → dossier `notes/` (lu à la demande), pas ici. Garder ce fichier **court**.
-- En web : pas d'Obsidian/MCP local → « déposer une source » = committer un fichier dans le repo.
-
-## Leçons (à enrichir)
-- _(rien encore)_
+## Leçons
+- **X/Twitter** : scraping direct bloqué (fingerprint navigateur) même quand curl passe → toujours read-API : `api.fxtwitter.com/<user>/status/<id>`, et `threadreaderapp.com/thread/<id>.html` pour dérouler un fil. Les « articles » X longs sont dans le JSON fxtwitter (`tweet.article`).
