@@ -1,0 +1,6 @@
+inputs/*
+!inputs/.gitkeep
+.env
+.env.*
+*.key
+.mcp.json

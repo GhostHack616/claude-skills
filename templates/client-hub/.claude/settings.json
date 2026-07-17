@@ -1,0 +1,12 @@
+{
+  "extraKnownMarketplaces": {
+    "ghosthack-skills": {
+      "source": { "source": "github", "repo": "GhostHack616/claude-skills" }
+    }
+  },
+  "enabledPlugins": {
+    "lemlist@ghosthack-skills": true,
+    "tools@ghosthack-skills": true,
+    "productivity@ghosthack-skills": true
+  }
+}

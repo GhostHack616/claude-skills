@@ -1,0 +1,9 @@
+{
+  "//": "Copier en .mcp.json (gitignoré) et adapter. OAuth uniquement — zéro secret commité.",
+  "mcpServers": {
+    "lemlist": {
+      "type": "http",
+      "url": "https://mcp.lemlist.com"
+    }
+  }
+}
