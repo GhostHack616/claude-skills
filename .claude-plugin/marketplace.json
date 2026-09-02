@@ -7,7 +7,7 @@
     {
       "name": "lemlist",
       "source": "./plugins/lemlist",
-      "description": "38-skill GTM / outbound library from lemlist (l3mpire/claude-skills) — ICP, sourcing, cold email & LinkedIn copywriting, campaign design, benchmarking, CRM hygiene, n8n automation. Minus the Claap-specific skill."
+      "description": "39-skill GTM / outbound library from lemlist (l3mpire/claude-skills) — ICP, sourcing, cold email & LinkedIn copywriting, campaign design, benchmarking, CRM hygiene, n8n automation. Minus the Claap-specific skill. Plus copy-lemlist (Romain): fills a whole Lemlist multichannel campaign by API (A/B emails, LinkedIn, tasks), leads-first, benchmark-backed, French SMB founders."
     },
     {
       "name": "tools",
