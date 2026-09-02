@@ -20,8 +20,12 @@
 | `handoff` | Compacte une conversation en doc de passation. |
 | `write-a-skill` | Aide à écrire un nouveau skill proprement. |
 
-### Plugin `lemlist` (38 skills) — librairie GTM / outbound
+### Plugin `lemlist` (39 skills) — librairie GTM / outbound
 ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking, hygiène CRM, automatisation n8n. Source : l3mpire/claude-skills (MIT), moins le skill spécifique Claap.
+
+| Skill maison | Rôle |
+|---|---|
+| `copy-lemlist` | Remplit une campagne Lemlist multicanal par l'API (mails A/B, LinkedIn, tâches) : lit les leads d'abord (ou pose les questions), recherche pain points / vocabulaire / claims / réponse du client, fiche d'angles et grill, variables à repli jamais bloquantes, délivrabilité dans le copy, deux drafts avant déploiement, relecture API. Bibliothèques sourcées jointes : `references/hooks.md`, `references/cta.md`, `references/objets.md`. |
 
 ### Plugin `tools` (3 skills)
 - `youtube-transcript` : lit le transcript d'une vidéo YouTube en texte brut (sans clé API, mais bloqué en 403 sur IP datacenter).
