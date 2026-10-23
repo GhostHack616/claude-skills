@@ -8,7 +8,7 @@
 
 ## Index des skills
 
-### Plugin `productivity` (8 skills) — mes skills perso
+### Plugin `productivity` (9 skills) — mes skills perso
 | Skill | Rôle |
 |---|---|
 | `analyse-pertinence` | Récupère le contenu d'une URL (vidéo YouTube ou site) via Apify, puis juge s'il est **pertinent pour moi** (profil growth/outbound) et comment le réutiliser. Grille 5 axes + verdict 🟢/🟡/🔴. Requiert `APIFY_TOKEN`. |
@@ -19,6 +19,7 @@
 | `grill-me` | Stress-test d'un plan par interview serré. |
 | `handoff` | Compacte une conversation en doc de passation. |
 | `write-a-skill` | Aide à écrire un nouveau skill proprement. |
+| `i-have-adhd` | Met en forme les réponses pour un lecteur TDAH : action d'abord, étapes numérotées, état restitué à chaque tour, temps en minutes, victoires visibles. Manuel (`/i-have-adhd`), actif jusqu'à « stop adhd mode ». Source : ayghri/i-have-adhd (MIT), non modifié. |
 
 ### Plugin `lemlist` (39 skills) — librairie GTM / outbound
 ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking, hygiène CRM, automatisation n8n. Source : l3mpire/claude-skills (MIT), moins le skill spécifique Claap.
