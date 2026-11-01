@@ -1,0 +1,8 @@
+{
+  "name": "meta-ads",
+  "description": "Skills Meta Ads : structure de campagne, audiences, idées et textes de pub, notation des vidéos, suivi des conversions, audit du compte. Copie des 8 skills Meta du plugin public Bulldozer Collective (bulldozer-collective/bulldozer-claude-marketplace, version 1.8.3 du 30/10/2026).",
+  "version": "1.0.0",
+  "author": {
+    "name": "Bulldozer Collective (contenu), GhostHack616 (packaging)"
+  }
+}

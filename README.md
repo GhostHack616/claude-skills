@@ -33,8 +33,11 @@ ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking,
 - `apify-fetch` : récupération web fiable via Apify (IP résidentielles → pas de 403). Deux usages : transcript YouTube (vidéo/chaîne/playlist) et crawl d'un site entier → markdown propre. **Remplace Supadata.** Requiert la variable d'env `APIFY_TOKEN`.
 - `scrapling` : scraping web via la lib Scrapling (arbre de décision Fetcher, bypass Cloudflare, sessions login, parsing HTML). Requiert un réseau ouvert (local/VPS), pas un sandbox web bridé. Adapté de Cedriccmh/claude-code-skill-scrapling (MIT).
 
-### `bulldozer/` (10 skills bruts, hors plugin)
-5 Meta Ads + 5 Google Ads (B2B paid acquisition). Cloné depuis la page Notion publique de Bulldozer Collective. Non packagés en plugin.
+### Plugin `meta-ads` (8 skills) : Meta Ads, depuis le plugin public Bulldozer
+Structure de campagne, audiences, idées et textes de pub, notation des vidéos, suivi des conversions, audit du compte. Copie telle quelle des skills Meta du plugin public `bulldozer-collective/bulldozer-claude-marketplace` (version 1.8.3, 30/10/2026). Détail et limites : [`plugins/meta-ads/README.md`](plugins/meta-ads/README.md).
+
+### `bulldozer/` (5 skills bruts, hors plugin)
+5 Google Ads (B2B paid acquisition). Cloné depuis la page Notion publique de Bulldozer Collective. Non packagés en plugin. Les 5 Meta Ads bruts ont été remplacés le 01/11/2026 par le plugin `meta-ads`.
 
 ---
 
