@@ -21,6 +21,8 @@ description: >-
 But : obtenir une réponse. Pas présenter le produit, pas impressionner.
 Écrire dans la langue du prospect. Répondre à l'utilisateur dans la sienne.
 
+**Priorité à `copy-lemlist`.** Si la cible est francophone (dirigeants de TPE/PME) ou si la campagne part dans Lemlist, les règles de `copy-lemlist` gagnent en cas de conflit : objet (2 à 5 mots, majuscule initiale), 4 mails maximum (J0, J+3, J+7, J+14), mots spam français, variables à repli. Ses bibliothèques (`hooks.md`, `cta.md`, `objets.md`) passent avant les exemples d'ici. Cette skill apporte ce que `copy-lemlist` n'a pas : le réglage par séniorité, la logique des relances, le choix de l'angle.
+
 ## Entrée
 Lire d'abord ce qui existe : `icp-*.md`, `persona-*.md`, `offre-*.md`, l'angle déjà choisi, les mails déjà envoyés, la conversation. Ne demander que ce qui manque, en un seul message, 1 à 3 questions max. Si tout est là, écrire directement.
 

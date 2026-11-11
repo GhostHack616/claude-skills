@@ -16,9 +16,8 @@ description: >
 Méthode seulement. Aucune donnée client ici : les claims, signatures, objets retenus
 et benchmarks d'un client vivent dans son repo (Qileo : blocs 06, 07, 11 et
 `brainstorms/2026-09-02-*.md`). Combine les skills de ce plugin
-(copywriting-first-touch, copywriting-follow-up, linkedin-sequence, cta-designer,
-copywriting-refiner) et write-like-me (plugin productivity). En cas de conflit, ce
-fichier gagne. Bibliothèques jointes, à lire avant d'écrire : `references/hooks.md`,
+(cold-email-writer, linkedin-outreach, copy-review) et write-like-me (plugin
+productivity). En cas de conflit, ce fichier gagne. Bibliothèques jointes, à lire avant d'écrire : `references/hooks.md`,
 `references/cta.md`, `references/objets.md`.
 
 ## Étape 1 : savoir à qui on écrit (obligatoire, avant tout)

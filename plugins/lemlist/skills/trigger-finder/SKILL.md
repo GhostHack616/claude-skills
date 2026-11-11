@@ -1,143 +1,101 @@
 ---
 name: trigger-finder
-description: >
-  Buying trigger analysis skill for outbound sales teams. Identifies and interprets
-  trigger events (funding, hiring, tool changes, job changes, LinkedIn activity, M&A, etc.)
-  to help time outreach and sharpen messaging. Works in two modes:
-  (1) Strategic — given an ICP, recommends the best triggers to activate and the right
-  messaging angle for each; (2) Tactical — given a specific company or signal, explains
-  how to exploit it right now.
-  ALWAYS use this skill when the user mentions signals, triggers, buying intent, "right time
-  to reach out", timing outreach, "they just raised", "they just hired", "they changed jobs",
-  job postings, funding rounds, tech stack changes, LinkedIn activity, or any event-based
-  prospecting. Use it even if the user just says "when should I reach out to X".
+description: >-
+  Lit les signaux d'achat (levée, recrutements, changement d'outil, changement
+  de poste, activité LinkedIn, fusion-acquisition) et les traduit en douleur
+  probable, angle et bon moment de contact. Deux modes : stratégique (pour un
+  ICP, quels déclencheurs surveiller et quel angle pour chacun) et tactique (un
+  compte ou un signal précis : douleurs classées, stratégie d'approche, niveau
+  de confiance). À utiliser quand on parle de "signaux", "déclencheurs",
+  "intention d'achat", "bon moment pour contacter", "ils viennent de lever",
+  "ils recrutent", "quelles sont les douleurs de [société]", "pourquoi [société]
+  achèterait", "recherche de compte", "triggers", "buying intent", "when should
+  I reach out", "they just raised", "they just hired", "pain points for
+  [company]", "account research", "qualify this lead". Régler les signaux dans
+  Lemlist : list-builder. Profil LinkedIn d'une personne : linkedin-outreach.
+  Écrire le message : cold-email-writer. Déclencheurs tirés des deals gagnés :
+  icp-builder.
 ---
+# Trigger Finder : du signal à la douleur, à l'angle et au moment
 
-# Trigger Finder — Outbound Timing & Signal Interpretation
+But : contacter un compte au moment où il a le plus de chances d'acheter, avec l'angle le plus pertinent.
 
-You are a senior outbound strategist. Your job is to help sales and growth teams use trigger
-events to reach prospects at the exact moment they're most likely to buy — and with the most
-relevant angle possible.
+Deux idées tiennent toute la skill :
+- **Un déclencheur signale un changement.** Le changement crée de nouveaux problèmes, de nouveaux budgets, une urgence. Un compte fermé le mois dernier peut être ouvert ce mois-ci.
+- **Les douleurs sont prévisibles.** Elles suivent le stade, les signaux de croissance, les outils, le secteur. Tout l'art est de savoir quel signal révèle quelle douleur, et ce que ça change pour le message.
 
-You understand two things deeply:
-1. **Why triggers work**: a trigger signals a change. Change creates new problems, new budgets,
-   and new urgency. A prospect who wasn't ready last month may be wide open this month because
-   something shifted in their world.
-2. **How to map triggers to pain**: not every trigger is relevant to every product. The skill
-   is in knowing *which* signals reveal *which* pain — and what that means for the message.
+## Entrée
+- Lire d'abord ce qui existe : `icp-*.md`, `persona-*.md`, `abm-*.md`, l'offre, le contexte de la conversation.
+- Il faut : le produit et le problème qu'il règle (une phrase), la cible (ICP ou compte précis), les déclencheurs déjà utilisés ou déjà connus.
+- Demander seulement ce qui manque, en un seul message, 3 questions au plus.
 
----
-
-## Step 1 — Detect the mode
-
-Read the user's input carefully. There are two modes:
-
-**Mode A — Strategic (ICP-level)**
-The user describes a target audience or product context without pointing at a specific company.
-Examples: "I target VP Sales at Series B SaaS", "we sell to e-commerce brands, what signals should I watch?", "build me a trigger-based outbound strategy"
-
-**Mode B — Tactical (signal-level)**
-The user gives you a specific signal or company + event.
-Examples: "Notion just raised a Series C", "I see that my prospect just got promoted", "this company is hiring 5 SDRs", "they switched from Salesforce to HubSpot"
-
-If the input is ambiguous, ask one question: "Are you looking to build a trigger strategy for a segment, or react to a specific signal for one company?"
-
----
-
-## Step 2A — Strategic mode output
-
-When working strategically, ask for:
-- **ICP**: what type of company + role they target
-- **Product**: what does it do, what problem does it solve
-- **Current triggers in use** (if any): so you don't suggest what they already have
-
-Then produce a **Trigger Playbook** for this ICP.
-
-### Trigger Playbook structure
-
-Start with a one-paragraph framing: *why trigger-based outreach works for this specific ICP*, and what the core buying window looks like (when do companies like this actually have budget and urgency?).
-
-Then, for each relevant trigger (pick the 5-7 most impactful for this ICP), produce a **Trigger Card**:
-
----
-**🔔 [Trigger name]**
-**Signal:** What specifically happened / what to look for
-**Why it matters for [ICP]:** The business logic — why this event creates urgency or relevance for your product RIGHT NOW. Be specific to the ICP, not generic.
-**Urgency window:** How long after the signal fires do you have before the moment passes? (e.g., "72 hours for job change, 2 weeks for funding")
-**Who to reach:** Which persona inside the company becomes most relevant after this trigger
-**Angle:** The core insight or tension to lead with — not a full message, but the "so what" that makes the outreach feel timely rather than random
-**Available in lemlist:** Yes / No — if yes, which feature; if no, suggest how to detect it externally
-**External detection (if not in lemlist):** How to find this signal manually or via other tools (LinkedIn alerts, Google Alerts, Crunchbase, G2, etc.)
----
-
-After the trigger cards, add a **Priority Stack**: a ranked list of the top 3 triggers for this ICP, with one sentence explaining why each one ranks highest.
-
-Then add a **Sequencing note**: how to combine multiple triggers into a single sequence (e.g., "If a company raised funds AND is hiring SDRs, stack these two signals in your opening line — it reads as highly researched and immediately relevant").
-
----
-
-## Step 2B — Tactical mode output
-
-When reacting to a specific signal, ask for (if not already given):
-- **The trigger**: what happened exactly
-- **The target**: company name and/or persona being reached
-- **The product**: what you're selling and its core value prop (1 sentence)
-
-Then produce a **Signal Brief**:
-
----
-**Signal detected:** [restate the trigger clearly]
-**Why this moment matters:** Explain the business logic in 2-3 sentences — what changed in their world, what new problem or opportunity this creates, why they'd be more open to your product *now* specifically vs. 3 months ago.
-**Urgency:** How long is this window open? What happens if you wait?
-**Who to reach:** Best persona(s) to target given this signal, and why
-**What NOT to do:** Common mistakes when using this trigger (e.g., "don't lead with congratulations — it's generic and signals you only know one thing about them")
-**Angle:** The core insight to lead with — the "so what" that makes the outreach feel like perfect timing rather than coincidence
-**Suggested lemlist trigger:** Which lemlist signal to set up to automate catching this in the future
-**How to detect similar signals at scale:** Practical method to monitor for this trigger across your TAM (tools, alerts, searches)
-
----
-
-## Trigger reference library
-
-Use this as your working knowledge of available and external triggers. Map them to ICPs intelligently — not every trigger fits every product.
-
-### Native lemlist triggers (available now)
-| Trigger | What it signals | Best for |
+## Étape 1 : choisir le mode
+| Mode | L'utilisateur donne | Exemples |
 |---|---|---|
-| Company hiring a specific role | Investment direction, scaling pain, new budget | Products that serve that function or the teams being hired |
-| Company visited my website | Active awareness, near-purchase consideration | Re-engagement, bottom-of-funnel urgency |
-| Engaged on specific LinkedIn topics | Problem awareness, active research | Top-of-funnel, thought leadership angle |
-| Custom signals (daily web content) | Any custom event trackable in public content | Niche signals, news, product launches |
-| Contact changed jobs | New mandate, desire to prove value in 90 days | Products that help new leaders move fast |
-| Competitor new connections | Competitor prospecting activity | Intercept before competitor closes the deal |
-| New hire joined the company | New decision-maker with fresh perspective | Products that new hires typically champion |
-| Technology change | Stack evolution, contract expiry, switching costs | Competitive displacement, integrations |
-| Company raised funds | New budget, pressure to scale, new investors watching | Growth tools, headcount tools, efficiency tools |
-| Engaged with LinkedIn profile | Active interest in a person/brand | Warm-ish outreach with proof of attention |
-| Engaged with LinkedIn company page | Brand awareness, competitive consideration | Community-aware outreach |
-| Mergers & Acquisitions | Operational disruption, vendor consolidation | Infrastructure, integration, process tools |
-| Promotion (coming soon) | New authority, desire to make mark quickly | Same as "new hire" logic but internal |
+| A. Stratégique | Une cible ou un produit, sans compte précis | "Je cible les VP Sales en Série B", "quels signaux surveiller ?" |
+| B. Tactique | Un compte, un signal ou un événement précis | "Notion vient de lever", "ils recrutent 5 SDR", "quelles sont les douleurs de [société] ?" |
 
-### High-value external triggers (not in lemlist — detect manually or via other tools)
-| Trigger | Detection method | Why it's powerful |
-|---|---|---|
-| New VP/C-suite hired (from outside) | LinkedIn alerts, Crunchbase, Winmo | First 90 days = buying window |
-| Company crossing headcount threshold (e.g., 50→100 employees) | LinkedIn company page, Crunchbase | Process/tool needs change at scale inflection points |
-| Product launch or major announcement | Google Alerts, ProductHunt, press mentions | Validates growth, opens budget conversations |
-| G2/Capterra negative reviews of a competitor | G2 reviews RSS, review monitoring | Perfect displacement opportunity |
-| Job posting for a role your product eliminates | LinkedIn Jobs, job boards | Direct pain signal — they're about to spend $ on a problem you solve |
-| Pricing page visit + no conversion | Website analytics (if available) | High-intent moment, needs a human push |
-| Conference attendance / speaking slot | Event websites, LinkedIn event attendees | Shared context, warm conversation starter |
-| Press coverage mentioning a pain your product solves | Google Alerts | Perfect moment to insert your solution |
-| Contract renewal period (estimated) | Industry knowledge (e.g., annual SaaS contracts renew in Q4) | Timing outreach 60-90 days before |
+Si c'est ambigu, une seule question : "Tu veux une stratégie de déclencheurs pour un segment, ou réagir à un signal sur un compte ?"
 
----
+## Mode A : playbook de déclencheurs (pour un ICP)
+1. **Cadrage, un paragraphe :** pourquoi l'approche par déclencheurs marche pour cet ICP, et à quoi ressemble sa fenêtre d'achat (quand ces entreprises ont vraiment budget et urgence).
+2. **5 à 7 fiches déclencheur**, les plus fortes pour cet ICP, piochées dans `references/declencheurs.md` :
 
-## Quality bar
+| Champ | Contenu |
+|---|---|
+| Signal | Ce qui s'est passé, ce qu'il faut chercher |
+| Pourquoi ça compte pour cet ICP | La logique métier, propre à l'ICP. Pas une phrase valable pour tout le monde. |
+| Fenêtre | Combien de temps après le signal avant que le moment passe |
+| Qui contacter | Le persona qui devient le plus pertinent après ce signal |
+| Angle | Le "et alors" qui rend le message opportun. Pas un message complet. |
+| Dans Lemlist | Oui (quel signal) ou non |
+| Détection externe | Si pas dans Lemlist : alertes LinkedIn, Google Alerts, Crunchbase, G2, etc. |
 
-Before outputting, ask yourself:
-- Is the "why it matters" section actually specific to this ICP, or could it apply to anyone?
-- Is the urgency window realistic and actionable?
-- Would a sales rep reading this understand *exactly* what to say and *why right now*?
-- Have I distinguished between "interesting signal" and "existential signal"? (The best triggers are existential — they signal a change so significant that NOT acting on it would be a mistake.)
-- Am I suggesting the lemlist trigger setup wherever possible? The goal is always to make this repeatable and automated, not one-off.
+3. **Top 3 :** les 3 déclencheurs prioritaires, une phrase de justification chacun.
+4. **Combinaison :** comment empiler deux signaux dans une même séquence. Levée + recrutement de SDR cités ensemble dans l'ouverture : le message paraît très documenté.
+
+## Mode B : fiche compte ou signal
+1. **Profil du compte** (LinkedIn, site, Crunchbase, recherche web) : secteur précis, effectif, stade, ce qu'ils vendent et à qui, arrivées récentes, postes ouverts, levée, actualités.
+2. **Détecter les signaux** : recrutement, financement, outils, autres. Table signal → douleur dans `references/signaux-douleurs.md`.
+3. **Relier chaque signal à une douleur, puis noter chaque douleur de 1 à 5 :**
+
+| Critère | Poids |
+|---|---|
+| Gravité (à quel point ça fait mal) | 30 % |
+| Solidité de la preuve | 25 % |
+| Adéquation avec l'offre | 25 % |
+| Urgence | 20 % |
+
+**Score au-dessus de 3,5 : ouvrir le message avec cette douleur.**
+
+4. **Sortie**, modèle complet dans `references/signaux-douleurs.md` :
+   - **Signal détecté** et **pourquoi ce moment compte** (2 à 3 phrases : ce qui a changé, pourquoi ils sont plus ouverts maintenant qu'il y a 3 mois) ;
+   - **fenêtre** : combien de temps elle reste ouverte, ce qu'on perd à attendre ;
+   - **qui contacter** et pourquoi ;
+   - **douleurs classées** (3 au plus) : description concrète, preuve, impact métier, impact personnel pour le rôle, urgence, réponse de l'offre, angle ;
+   - **à ne pas faire** avec ce signal ;
+   - **stratégie d'approche** : angle principal + 3 questions de découverte (faire émerger la douleur, chiffrer l'impact, révéler l'urgence) ;
+   - **niveau de confiance** par douleur ;
+   - **automatiser** : quel signal Lemlist régler pour capter ce cas à l'avenir, et comment le surveiller à l'échelle.
+
+## Niveau de confiance
+| Confiance | Critère |
+|---|---|
+| Haute | Preuve directe : signal observé et daté |
+| Moyenne | Inférence forte : motif de stade ou de secteur |
+| Basse | Supposition. À marquer comme hypothèse à tester en découverte. |
+
+## Règles
+- **Chaque douleur se rattache à un signal observable.** Sinon elle sort.
+- Pas de douleur générique ("besoin d'efficacité") : une description précise.
+- **Ne pas ouvrir par des félicitations.** C'est générique et ça montre qu'on ne sait qu'une chose sur eux.
+- Séparer le signal intéressant du signal existentiel. Les meilleurs annoncent un changement si fort que ne rien faire serait une erreur.
+- Proposer le réglage Lemlist chaque fois qu'il existe : le but est un dispositif répétable, pas un coup isolé.
+- Ne jamais inventer un chiffre ni un fait sur le compte. Impact chiffré seulement avec une donnée réelle, sinon le décrire.
+- Un commercial qui lit la sortie doit savoir quoi dire et pourquoi maintenant.
+
+## Suite
+Proposer la suite et attendre l'accord :
+1. Mode A : régler ces signaux dans une recherche avec `list-builder`. Si un déclencheur revient sur la majorité des deals gagnés, le remonter dans `icp-builder`.
+2. Mode B : écrire le message avec `cold-email-writer`, `linkedin-outreach` (si on a le profil du contact) ou `cold-call-script`.
+3. Plusieurs comptes à classer : `abm` pour les tiers.

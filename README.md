@@ -6,7 +6,7 @@
 
 ---
 
-## Architecture : 6 blocs, 48 skills
+## Architecture : 6 blocs, 46 skills
 
 Rangé par thème, dans l'ordre du travail sur un client. Un bloc = un plugin = un zip dans `dist/`.
 
@@ -17,7 +17,7 @@ Rangé par thème, dans l'ordre du travail sur un client. Un bloc = un plugin = 
 | 3. Pub payante | `paid-ads` | 11 | Meta et Google Ads |
 | 4. CRM et automatisation | `revops` | 3 | n8n, doublons, pipe |
 | 5. Outils web | `tools` | 3 | Scraper, crawler, transcripts |
-| 6. Perso et méta | `productivity` | 12 | Malt, voix, brainstorm, écrire des skills |
+| 6. Perso et méta | `productivity` | 10 | Malt, voix, brainstorm, écrire des skills |
 
 > Règle : **tout skill du repo vit dans un plugin** déclaré dans `.claude-plugin/marketplace.json`. Pas de dossier de skills hors `plugins/`. Avant d'en ajouter un : vérifier qu'il ne double pas un skill existant, sinon le fusionner.
 
@@ -84,7 +84,7 @@ Détail et limites : [`plugins/paid-ads/README.md`](plugins/paid-ads/README.md).
 - `apify-fetch` : transcripts YouTube et crawl d'un site en markdown via Apify (IP résidentielles). Demande `APIFY_TOKEN`.
 - `youtube-transcript` : transcript YouTube sans clé (bloqué en 403 sur IP datacenter).
 
-### 6. `productivity` : perso et méta (12)
+### 6. `productivity` : perso et méta (10)
 | Skill | Rôle |
 |---|---|
 | `malt-workflow` | Workflow Malt à 2 modes (offre, profil). Va chercher l'offre dans Gmail, juge le fit, produit la réponse. |
@@ -95,13 +95,11 @@ Détail et limites : [`plugins/paid-ads/README.md`](plugins/paid-ads/README.md).
 | `grill-me` | Stress-test d'un plan par interview serrée. |
 | `handoff` | Compacte une conversation en doc de passation. |
 | `write-a-skill` | Écrire un nouveau skill proprement. |
-| `prompt-engineering` | Transformer un prompt brouillon en prompt prêt pour la prod. |
-| `slide-deck-builder` | Document source → présentation .pptx. |
 | `i-have-adhd` | Réponses mises en forme pour un lecteur TDAH. Manuel (`/i-have-adhd`). |
 | `marketplace-sync-check` | Vérifie que la marketplace est bien chargée dans le repo courant. |
 
 ### Ce qui a été fusionné (11/11/2026)
-68 skills → 48. Rien n'est perdu : les anciennes versions restent dans l'historique git.
+68 skills → 46. Rien n'est perdu : les anciennes versions restent dans l'historique git.
 
 | Avant | Maintenant |
 |---|---|
@@ -119,6 +117,8 @@ Détail et limites : [`plugins/paid-ads/README.md`](plugins/paid-ads/README.md).
 | `search-terms`, `negative-keywords` | `search-terms` |
 | `gtm-action-thinker` | `brainstorm` (référence `gtm-lens.md`) |
 | `shopping-feed` | supprimé (e-commerce, hors cible) |
+| `prompt-engineering` | supprimé (écrit pour Claude 4.x, daté) |
+| `slide-deck-builder` | supprimé (doublon de la skill PowerPoint officielle d'Anthropic) |
 | plugins `meta-ads` + `google-ads` | plugin `paid-ads` |
 
 ---
@@ -149,7 +149,7 @@ unzip -o ~/claude-skills/dist/gtm-strategy.zip -d .claude/skills/
 unzip -o ~/claude-skills/dist/lemlist.zip -d .claude/skills/
 ```
 
-Les deux ensemble donnent toute la chaîne client (`gtm-kickoff` compris). Régénérer les zips après chaque changement : `scripts/build-dist.sh`.
+Les deux ensemble donnent toute la chaîne client (`gtm-kickoff` compris). Pour un seul skill : `unzip -o dist/productivity.zip 'malt-workflow/*' -d .claude/skills/`. Régénérer les zips après chaque changement : `scripts/build-dist.sh`.
 
 ### 2. Marketplace de plugins — **CLI local seulement**
 Ce repo est aussi une marketplace (`.claude-plugin/marketplace.json`). En **CLI local** :

@@ -1,6 +1,6 @@
 ---
 name: brainstorm
-description: Vrai brainstorm structuré qui transforme une idée floue en design ou plan d'action validé. Mélange de grill-me (interrogatoire serré, une question à la fois, hypothèses challengées) et du brainstorming de superpowers (exploration du contexte, 2-3 approches avec trade-offs, design présenté section par section, doc final). Marche pour une idée produit/code ET pour une idée business, growth, offre, campagne. Utiliser sur "brainstorm", "j'ai une idée", "on réfléchit à", "aide-moi à creuser", "challenge cette idée", "on conçoit", avant toute création de feature ou lancement d'un nouveau projet.
+description: Vrai brainstorm structuré qui transforme une idée floue en design ou plan d'action validé. Mélange de grill-me (interrogatoire serré, une question à la fois, hypothèses challengées) et du brainstorming de superpowers (exploration du contexte, 2-3 approches avec trade-offs, design présenté section par section, doc final). Marche pour une idée produit/code ET pour une idée business, growth, offre, campagne, angle outbound, concept de workflow, hypothèse de positionnement ou toute initiative GTM (grille GTM dédiée : pari central, angles morts, plan d'exécution, critère d'arrêt). Utiliser sur "brainstorm", "j'ai une idée", "on réfléchit à", "aide-moi à creuser", "challenge cette idée", "on conçoit", "qu'est-ce que tu en penses", "aide-moi à creuser cette campagne", "est-ce un bon move GTM", "I have an idea", "what do you think about this", "help me think through this campaign", "is this a good GTM move", avant toute création de feature ou lancement d'un nouveau projet.
 ---
 
 # Brainstorm
@@ -15,6 +15,7 @@ Aucune implémentation, aucun code, aucun livrable final, aucune action externe 
 - Sujet code/produit : lire le repo, les docs, les commits récents.
 - Sujet business/growth (offre, campagne, positionnement) : lire ce qui existe (profil, stats, Notion, fichiers du repo). Ne jamais poser une question dont la réponse est déjà dans les fichiers : aller la chercher (règle grill-me).
 - **Scope check immédiat** : si l'idée recouvre plusieurs sous-projets indépendants, le dire tout de suite et découper AVANT de creuser les détails. On brainstorme le premier sous-projet, pas la nébuleuse.
+- **Idée GTM / growth / outbound** (campagne, angle, workflow, positionnement) : lire `references/gtm-lens.md` avant de questionner. Elle dit quoi creuser à chaque étape (pari central, hypothèses cachées, angles morts, version 10x, plan d'exécution avec critère d'arrêt). Le déroulé reste celui d'ici : une question à la fois, rien de final avant validation.
 
 ## Étape 2 : le grill (cœur du skill)
 Interroger sans relâche jusqu'à compréhension partagée, en descendant chaque branche de l'arbre de décision, dépendance par dépendance.

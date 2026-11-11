@@ -32,7 +32,7 @@
     {
       "name": "productivity",
       "source": "./plugins/productivity",
-      "description": "Skills perso et méta. brainstorm (idée floue → plan validé, avec une grille GTM), grill-me, handoff, write-a-skill, prompt-engineering (optimiser un prompt), slide-deck-builder (document → .pptx), write-like-me (réécrire dans la voix de l'utilisateur), analyse-pertinence (juger une URL ou une vidéo, demande APIFY_TOKEN), malt-workflow et malt-response (opportunités Malt), i-have-adhd (réponses mises en forme pour un lecteur TDAH), marketplace-sync-check (vérifier que la marketplace est bien chargée)."
+      "description": "Skills perso et méta. brainstorm (idée floue → plan validé, avec une grille GTM), grill-me, handoff, write-a-skill, write-like-me (réécrire dans la voix de l'utilisateur), analyse-pertinence (juger une URL ou une vidéo, demande APIFY_TOKEN), malt-workflow et malt-response (opportunités Malt), i-have-adhd (réponses mises en forme pour un lecteur TDAH), marketplace-sync-check (vérifier que la marketplace est bien chargée)."
     }
   ]
 }

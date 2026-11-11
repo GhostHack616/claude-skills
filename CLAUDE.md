@@ -6,8 +6,9 @@
 - Parle **français**. **Veut des réponses TRÈS concises**, droit au but.
 
 ## Ce repo
-- Marketplace **publique** de skills (plugins `tools` / `productivity` / `lemlist`).
-- Maillon faible connu : skill `website-scraper` (requests basique, lâche sur Cloudflare).
+- Marketplace **publique** de skills. Claude en est responsable : rangement, fusions, cohérence.
+- 6 blocs : `gtm-strategy`, `lemlist` (outbound), `paid-ads`, `revops`, `tools`, `productivity`. Tout skill vit dans un plugin. Carte et chaîne : `README.md`.
+- Avant d'ajouter un skill : chercher un doublon et fusionner. Après tout changement : `scripts/build-dist.sh`.
 
 ## Décisions
 - **Mémoire perso + notes → repo privé dédié** (multi-repos ; ici on ne garde que le contexte du repo).

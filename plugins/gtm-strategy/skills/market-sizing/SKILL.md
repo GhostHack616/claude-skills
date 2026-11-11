@@ -127,6 +127,13 @@ Lister chaque hypothèse avec son niveau de confiance.
 - Toujours : calculs visibles, sources datées, niveaux de confiance.
 - Lecture seule : rien de modifié dans le CRM ou les outils.
 
+## Suite
+Proposer la suite et **attendre l'accord** avant d'enchaîner. Ne rien lancer tout seul.
+1. "On fait les tiers et la liste de comptes ?" : `abm`.
+2. "On étudie les douleurs du marché et la concurrence ?" : `market-research`.
+3. ICP flou ou absent (étape 0) : `icp-builder` d'abord, puis revenir ici.
+4. "On passe aux filtres de recherche sur la tête de pont ?" : `list-builder`.
+
 ---
 
 ## Annexe : sources

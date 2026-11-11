@@ -98,3 +98,10 @@ Où le tenir : un champ ou une note dans le CRM en place, ou un tableur. Dans l'
 ## Règles
 - Aucun envoi, aucune modification dans le CRM ou l'outil de prospection sans validation.
 - Ne jamais inventer un chiffre : les tailles, poids et points ci-dessus sont des repères indicatifs, à remplacer par ses propres données.
+
+## Suite
+Proposer la suite et **attendre l'accord** avant d'enchaîner. Ne rien lancer tout seul.
+1. "On configure la recherche pour sortir les contacts de chaque tier ?" : `list-builder` (et `niche-data-finder` si les bases classiques ne suffisent pas).
+2. "On surveille les déclencheurs qui font monter un compte en Tier 1 ?" : `trigger-finder`.
+3. "On construit la séquence par tier ?" : `outbound-campaign-architect`, puis `cold-email-writer`, `linkedin-outreach` ou `cold-call-script`.
+4. Pas de persona défini pour ces comptes : `persona-builder` d'abord.

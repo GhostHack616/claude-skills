@@ -1,55 +1,42 @@
 ---
 name: search-terms
-description: Analyse les Search Terms Google Ads pour identifier les requêtes qui génèrent des SQL vs le bruit. Sépare les requêtes à forte valeur pipeline du trafic informationnel. Déclencher pour : "search terms", "requêtes de recherche", "analyse requêtes", "SQL queries", "quality leads Google Ads".
+description: Analyse les termes de recherche Google Ads pour séparer les requêtes qui génèrent des SQL du bruit, puis en tire les listes de mots-clés négatifs prêtes à importer (catégories, type de correspondance, quick wins). Sert à scaler les bonnes requêtes, trouver de nouveaux mots-clés et couper le budget gaspillé sur des requêtes hors ICP. Déclencher pour "search terms", "termes de recherche", "requêtes de recherche", "analyse requêtes", "SQL queries", "quality leads Google Ads", "audit négatifs", "negative keywords", "mots-clés négatifs", "requêtes hors cible", "wasted spend", "budget gaspillé", "clean up search terms". Ne pas utiliser pour écrire des annonces (rsa-generator) ni pour auditer Performance Max (pmax-auditor).
 ---
 
-# Search Terms Analyzer — B2B Paid Acquisition
+# Search Terms : requêtes à garder, requêtes à exclure (B2B)
 
 ## Objectif
-Analyser les rapports de search terms pour distinguer les requêtes qui génèrent des SQL (Sales Qualified Leads) de celles qui génèrent du bruit. En B2B, la majorité du volume de requêtes n'a aucune valeur pipeline — ce skill identifie les signaux de qualité.
+Lire le rapport des termes de recherche pour distinguer les requêtes qui génèrent des SQL (Sales Qualified Leads) de celles qui font du bruit, puis bloquer le bruit avec des mots-clés négatifs. En B2B, la majorité du volume de requêtes n'a aucune valeur pipeline, et 15 à 30 % du budget Google Ads part sur des requêtes hors ICP (mauvais persona, mauvaise intention, mauvais stade du funnel).
 
-## Quand utiliser ce skill
-- Analyse hebdomadaire ou bimensuelle des search terms
-- Identification des requêtes à scaler (plus de budget)
-- Découverte de nouveaux mots-clés à ajouter aux campagnes
-- Diagnostic d'un problème de qualité des leads
+## Quand l'utiliser
+- Revue des termes de recherche toutes les 2 semaines.
+- Lancement d'une campagne (liste de négatifs en protection préventive).
+- Problème de qualité des leads, CAC en hausse sans explication, taux de conversion de la landing page en baisse.
+- Recherche de requêtes à scaler ou de nouveaux mots-clés à ajouter.
 
-## Inputs requis
+## Inputs
+Demander à l'utilisateur ce qui manque :
+1. **Rapport des termes de recherche** (CSV ou Excel, 30 à 90 derniers jours) : requête, impressions, clics, coût, conversions, valeur de conversion.
+2. **Données CRM** si elles existent : quelles requêtes ont donné des SQL, des opportunités, des deals gagnés.
+3. **ICP** : persona et intitulés de poste cibles, taille d'entreprise, secteur, pays.
+4. **Définition d'un SQL** et objectifs pipeline (SQL, démo, essai gratuit...).
+5. **Campagnes actives** et leurs objectifs, budget mensuel, CPA cible.
 
-Demande à l'utilisateur :
-1. **Search Terms Report** (CSV/Excel) avec : requête, impressions, clics, coût, conversions, valeur de conversion
-2. **Données CRM** (si disponible) : quelles requêtes ont généré des SQL, opportunities, closed-won
-3. **ICP** : persona, taille entreprise, secteur, géo
-4. **Définition d'un SQL** pour ce business
-5. **Campagnes actives** et leurs objectifs
+## Partie 1 : analyser les requêtes
 
-## Processus
+### Étape 1 : classer chaque requête (intention × ICP)
+| | ICP : oui | ICP : non |
+|---|---|---|
+| **Intention transactionnelle** | SCALE : plus de budget | MONITOR : à évaluer |
+| **Intention informationnelle** | NURTURE : retargeting seulement | EXCLUDE : négatif |
 
-### Étape 1 — Classification des requêtes
-
-Catégorise chaque requête selon la **matrice intention × ICP** :
-
-```
-                    ICP Match ✅         ICP Match ❌
-                ┌─────────────────┬─────────────────┐
-Intention       │   🟢 SCALE      │   🟡 MONITOR    │
-Transactionnelle│   Budget ↑↑     │   Évaluer       │
-                ├─────────────────┼─────────────────┤
-Intention       │   🟡 NURTURE    │   🔴 EXCLUDE    │
-Informationnelle│   Retarget only │   Négatif        │
-                └─────────────────┴─────────────────┘
-```
-
-### Étape 2 — Signaux d'intention B2B
-
-Identifie les marqueurs d'intention dans les requêtes :
-
+### Étape 2 : repérer les signaux d'intention
 **Signaux forts (intention d'achat) :**
 - "logiciel", "outil", "solution", "plateforme" + secteur
 - "comparatif", "vs", "alternative à [concurrent]"
 - "prix", "tarif", "devis", "demo"
-- "pour [taille entreprise]", "pour [secteur]"
-- "[Problème spécifique] + automatiser/optimiser/réduire"
+- "pour [taille d'entreprise]", "pour [secteur]"
+- [problème précis] + "automatiser", "optimiser", "réduire"
 
 **Signaux faibles (informationnel) :**
 - "c'est quoi", "définition", "comment", "pourquoi"
@@ -57,70 +44,103 @@ Identifie les marqueurs d'intention dans les requêtes :
 - "cours", "formation", "tuto", "pdf"
 - "emploi", "stage", "salaire", "fiche métier"
 
-**Signaux ambigus (à analyser avec le CRM) :**
-- Requêtes marque concurrente
-- Requêtes génériques sectorielles
-- Requêtes avec des termes métier spécifiques
+**Signaux ambigus (à trancher avec le CRM) :**
+- requêtes sur la marque d'un concurrent
+- requêtes génériques du secteur
+- requêtes avec des termes métier précis
 
-### Étape 3 — Analyse de performance par cluster
-
-Regroupe les requêtes en clusters thématiques et analyse :
+### Étape 3 : performance par cluster
+Regrouper les requêtes par thème, puis juger chaque cluster :
 
 | Cluster | Requêtes | Clics | Coût | Conv. | SQL | Coût/SQL | Verdict |
-|---------|----------|-------|------|-------|-----|----------|---------|
-| [Thème A] | X | X | X€ | X | X | X€ | SCALE/MAINTAIN/CUT |
+|---|---|---|---|---|---|---|---|
+| [Thème A] | X | X | X € | X | X | X € | SCALE / MAINTAIN / CUT |
 
-### Étape 4 — Identification des opportunités
+### Étape 4 : opportunités
+1. **Requêtes à scaler** : bonne conversion, bon CPA, peu d'impressions.
+2. **Nouveaux mots-clés** : requêtes à forte intention pas encore couvertes par les campagnes.
+3. **Requêtes à isoler** : très bonne performance, méritent leur propre groupe d'annonces avec une annonce dédiée.
+4. **Longue traîne rentable** : requêtes très précises avec un excellent taux de conversion.
 
-1. **Requêtes à scaler** : bonne conversion, bon CPA, sous-exploitées (peu d'impressions)
-2. **Nouveaux keywords à ajouter** : requêtes non couvertes par les campagnes existantes mais à forte intention
-3. **Requêtes à isoler** : haute performance → méritent leur propre ad group avec annonce dédiée
-4. **Long tail à fort ROI** : requêtes très spécifiques avec excellent taux de conversion
-
-### Étape 5 — Recommandations d'action
-
-Pour chaque cluster, recommande une action concrète :
-
+### Étape 5 : une action par cluster
 | Action | Critère | Mise en œuvre |
-|--------|---------|---------------|
-| **SCALE** | SQL-generating, bon CPA | Augmenter les enchères, ajouter en exact match |
-| **ISOLATE** | Fort volume + fort CVR | Créer un ad group dédié avec RSA spécifique |
-| **ADD** | Nouvelle requête pertinente | Ajouter comme keyword dans la bonne campagne |
-| **EXCLUDE** | Hors ICP ou hors intention | Ajouter en négatif (voir skill negative-keywords) |
-| **MONITOR** | Ambiguë, données insuffisantes | Laisser tourner 2 semaines, re-analyser |
+|---|---|---|
+| **SCALE** | Génère des SQL, bon CPA | Monter les enchères, ajouter en exact match |
+| **ISOLATE** | Fort volume + fort taux de conversion | Groupe d'annonces dédié avec RSA spécifique (skill `rsa-generator`) |
+| **ADD** | Nouvelle requête pertinente | L'ajouter comme mot-clé dans la bonne campagne |
+| **EXCLUDE** | Hors ICP ou hors intention | Passer en négatif (partie 2) |
+| **MONITOR** | Ambiguë, pas assez de données | Laisser tourner 2 semaines, puis réanalyser |
+
+## Partie 2 : construire les négatifs
+
+### Étape 6 : ranger les requêtes à exclure
+| Catégorie | Exemple | Action |
+|---|---|---|
+| **Hors persona** | "gratuit", "stage", "formation", "étudiant" | Négatif exact ou expression |
+| **Hors intention** | "c'est quoi", "définition", "pdf", "cours" | Négatif expression |
+| **Concurrent direct** | Noms de concurrents (s'ils ne sont pas ciblés exprès) | Négatif exact |
+| **B2C / mauvais segment** | "particulier", "personnel", "pas cher" | Négatif expression |
+| **Géo hors cible** | Villes ou pays non ciblés | Négatif exact |
+| **Poste hors cible** | Rôles non décisionnaires | Négatif expression |
+
+### Étape 7 : listes thématiques réutilisables
+1. **[NKW] Intent : Informationnel** : requêtes purement informationnelles, sans intention d'achat.
+2. **[NKW] Persona : Hors ICP** : requêtes liées à des personas non ciblés.
+3. **[NKW] Budget : Low value** : requêtes avec "gratuit", "pas cher", "free trial" sans valeur.
+4. **[NKW] Competitors** : noms de concurrents (si applicable).
+5. **[NKW] Geo : Exclusions** : termes géographiques hors zone ciblée.
+
+### Étape 8 : type de correspondance
+- **Exact négatif** : la requête précise est hors cible, mais ses variantes peuvent être utiles.
+- **Expression négative** : tout un thème est hors cible.
+- **Large négatif** : avec précaution, seulement pour des termes sans ambiguïté ("emploi", "stage").
 
 ## Format de sortie
-
 ```
-## Analyse Search Terms — [Période]
+## Analyse Search Terms : [Période]
 
 ### Vue d'ensemble
 - Requêtes uniques analysées : [X]
-- Requêtes SQL-generating : [X] ([X]%)
-- Requêtes hors ICP : [X] ([X]%)
-- Budget sur requêtes SQL-generating : [X]€ ([X]%)
+- Requêtes qui génèrent des SQL : [X] ([X] %)
+- Requêtes hors ICP : [X] ([X] %)
+- Budget sur requêtes qui génèrent des SQL : [X] € ([X] %)
+- Budget gaspillé estimé (30 j) : [X] € | Économie projetée : [X] €/mois
 
-### Top 10 requêtes SQL-generating
+### Top 10 requêtes qui génèrent des SQL
 | Requête | Clics | Coût | SQL | Coût/SQL | Action |
-|---------|-------|------|-----|----------|--------|
-
-### Top 10 requêtes à exclure (budget gaspillé)
-| Requête | Clics | Coût | Conv. | Raison exclusion |
 
 ### Clusters de requêtes
 [Tableau par cluster avec verdict]
 
-### Nouvelles opportunités keywords
+### Nouvelles opportunités de mots-clés
 | Requête découverte | Volume estimé | Intention | Campagne recommandée |
+
+### Top 20 quick wins à bloquer (les plus coûteuses)
+| Requête | Impressions | Clics | Coût | Conv. | Raison | Action recommandée |
+
+### Listes de négatifs
+#### [NKW] Intent : Informationnel
+[mots-clés + type de correspondance]
+#### [NKW] Persona : Hors ICP
+[mots-clés + type de correspondance]
+[etc.]
+
+### Requêtes ambiguës (décision requise)
+| Requête | Contexte | Recommandation |
 
 ### Actions prioritaires
 1. [Action immédiate 1]
 2. [Action immédiate 2]
 3. [Action immédiate 3]
 ```
+En plus : les négatifs dans un **CSV prêt à importer** (mot-clé, type de correspondance, liste).
 
 ## Règles clés
-- Ne jamais juger une requête uniquement sur les conversions Google Ads — toujours croiser avec les données CRM (SQL, pipeline, revenue)
-- Une requête à faible volume mais fort taux de SQL vaut plus qu'une requête à fort volume sans pipeline
-- Les requêtes brand concurrent sont à traiter au cas par cas (souvent bon CTR mais mauvais taux de closing)
-- Relancer l'analyse toutes les 2 semaines — les patterns changent
+- **Ne jamais juger une requête sur les seules conversions Google Ads.** Toujours croiser avec le CRM (SQL, pipeline, revenu).
+- Une requête à faible volume mais fort taux de SQL vaut plus qu'une requête à gros volume sans pipeline.
+- **Ne jamais ajouter un négatif qui peut bloquer une requête à forte intention d'achat.** En cas de doute : requête ambiguë, décision humaine.
+- Vérifier les effets croisés : un négatif dans une campagne ne doit pas bloquer une requête utile dans une autre.
+- Requêtes sur la marque d'un concurrent : au cas par cas (souvent bon CTR, mauvais taux de closing). Négatif seulement si on ne les cible pas exprès.
+- Prioriser par coût : commencer par les requêtes qui brûlent le plus de budget.
+- Ne jamais inventer un chiffre : budget gaspillé et économie se calculent sur le rapport fourni.
+- Documenter chaque décision pour la revue suivante. Relancer l'analyse toutes les 2 semaines : les motifs changent.

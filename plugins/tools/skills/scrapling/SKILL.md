@@ -66,6 +66,13 @@ Passer au script Python (templates) seulement si la CLI ne suffit pas : login co
 4. Exécuter, renvoyer le minimum utile (champs ciblés, pas la page entière).
 5. Si un nouveau pattern de site se dégage, le noter (sans données privées dans un fichier public).
 
+## Extraction structurée vers CSV (liste, annuaire, plusieurs pages)
+Dès que la demande est "sors-moi ces données en tableau / en CSV" (entreprises d'un annuaire, contacts, prix, offres d'emploi, articles), lire `references/extraction-csv.md` avant de coder. En résumé :
+1. **Cadrer en un seul message, seulement ce qui manque** : URL(s) et motif de pagination, champs exacts à extraire, nom du fichier (défaut `scraped-data.csv`). Si l'URL et les champs sont clairs, ne rien demander.
+2. **Explorer la page** : blocs répétés, pagination, signaux anti-bot. Annoncer en une ligne ce qu'on a trouvé avant de lancer.
+3. **Extraire, nettoyer, dédoublonner**, puis écrire le CSV.
+4. **Rendre la main avec le résumé** : URL(s), lignes extraites, doublons retirés, colonnes, champs creux, avertissements.
+
 ## Aide-mémoire
 
 **Format des cookies**
