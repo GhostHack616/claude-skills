@@ -46,8 +46,10 @@ Règle commune : aucun chiffre inventé, calculs visibles, lecture seule sur le 
 ### Plugin `meta-ads` (8 skills) : Meta Ads, depuis le plugin public Bulldozer
 Structure de campagne, audiences, idées et textes de pub, notation des vidéos, suivi des conversions, audit du compte. Copie telle quelle des skills Meta du plugin public `bulldozer-collective/bulldozer-claude-marketplace` (version 1.8.3, 30/10/2026). Détail et limites : [`plugins/meta-ads/README.md`](plugins/meta-ads/README.md).
 
-### `bulldozer/` (5 skills bruts, hors plugin)
-5 Google Ads (B2B paid acquisition). Cloné depuis la page Notion publique de Bulldozer Collective. Non packagés en plugin. Les 5 Meta Ads bruts ont été remplacés le 01/11/2026 par le plugin `meta-ads`.
+### Plugin `google-ads` (5 skills) : Google Ads B2B, depuis la page Notion publique de Bulldozer
+`negative-keywords`, `search-terms`, `rsa-generator`, `pmax-auditor`, `shopping-feed` (ce dernier ne sert qu'en e-commerce). Packagés en plugin le 11/11/2026 (avant : `bulldozer/`, hors plugin). Notes qualité par skill dans `AUDIT.md`.
+
+> Règle : **tout skill du repo vit dans un plugin** déclaré dans `.claude-plugin/marketplace.json`. Pas de dossier de skills bruts hors `plugins/`.
 
 ---
 
@@ -77,6 +79,8 @@ Ce repo est aussi une marketplace (`.claude-plugin/marketplace.json`). En **CLI 
 /plugin install productivity@ghosthack-skills
 /plugin install gtm-strategy@ghosthack-skills
 ```
+
+Plugins disponibles : `productivity`, `lemlist`, `tools`, `gtm-strategy`, `meta-ads`, `google-ads`.
 
 ou via `.claude/settings.json` (`extraKnownMarketplaces` + `enabledPlugins`).
 
@@ -109,7 +113,7 @@ git clone git@github.com:GhostHack616/claude-skills.git ~/claude-skills
 cd ~/claude-skills && ./install.sh
 ```
 
-`install.sh` symlinke les dossiers de skills (`bulldozer/`, `tools/`) dans `~/.claude/skills/`. Idempotent.
+`install.sh` symlinke tous les skills de `plugins/*/skills/` dans `~/.claude/skills/`. Idempotent.
 
 ## Conventions
 

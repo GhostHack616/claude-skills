@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Symlinks every SKILL.md folder under bulldozer/, noelse/, tools/ into ~/.claude/skills/
+# Symlinks every SKILL.md folder under plugins/*/skills/ into ~/.claude/skills/
 # Idempotent: re-running updates symlinks. Skips folders without a SKILL.md.
 
 set -euo pipefail
@@ -12,7 +12,7 @@ linked=0
 skipped=0
 overwritten=0
 
-for skill_dir in "$REPO_ROOT"/{bulldozer/meta-ads,bulldozer/google-ads,noelse,tools}/*/; do
+for skill_dir in "$REPO_ROOT"/plugins/*/skills/*/; do
   [ -d "$skill_dir" ] || continue
   [ -f "$skill_dir/SKILL.md" ] || { skipped=$((skipped+1)); continue; }
   name="$(basename "$skill_dir")"
