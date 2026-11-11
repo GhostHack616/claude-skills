@@ -33,6 +33,16 @@ ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking,
 - `apify-fetch` : récupération web fiable via Apify (IP résidentielles → pas de 403). Deux usages : transcript YouTube (vidéo/chaîne/playlist) et crawl d'un site entier → markdown propre. **Remplace Supadata.** Requiert la variable d'env `APIFY_TOKEN`.
 - `scrapling` : scraping web via la lib Scrapling (arbre de décision Fetcher, bypass Cloudflare, sessions login, parsing HTML). Requiert un réseau ouvert (local/VPS), pas un sandbox web bridé. Adapté de Cedriccmh/claude-code-skill-scrapling (MIT).
 
+### Plugin `gtm-strategy` (4 skills) : ciblage chiffré, en français
+| Skill | Rôle |
+|---|---|
+| `tam` | Chef d'orchestre : `icp-builder` → `market-sizing` → `abm`, un seul livrable `tam-{marché}.md`. Déclencheurs : « fais-moi un TAM », « TAM SAM SOM », « TAM complet ». |
+| `icp-builder` | ICP sur 4 dimensions (profil, outils, comportement d'achat, déclencheurs) + ICP négatif + grille de score sur 100, tiré des deals gagnés (HubSpot, Pipedrive ou CSV). Test de validation avant publication. |
+| `market-sizing` | TAM / SAM / SOM : bottom-up d'abord, top-down en contrôle, SOM dérivé de la capacité commerciale. Hypothèses avec confiance + sensibilité ×2/÷2, règle d'arrêt. |
+| `abm` | Tiers 1/2/3 calés sur la capacité commerciale, liste de comptes scorée avec la grille d'`icp-builder`, score d'engagement par compte, règles de montée / descente / sortie. |
+
+Règle commune : aucun chiffre inventé, calculs visibles, lecture seule sur le CRM. Chevauchement connu avec `lemlist` : `icp-definer` (ICP outbound, en anglais, sans données CRM) et `trigger-finder`. `icp-builder` part des deals gagnés ; `icp-definer` part du produit.
+
 ### Plugin `meta-ads` (8 skills) : Meta Ads, depuis le plugin public Bulldozer
 Structure de campagne, audiences, idées et textes de pub, notation des vidéos, suivi des conversions, audit du compte. Copie telle quelle des skills Meta du plugin public `bulldozer-collective/bulldozer-claude-marketplace` (version 1.8.3, 30/10/2026). Détail et limites : [`plugins/meta-ads/README.md`](plugins/meta-ads/README.md).
 
@@ -65,6 +75,7 @@ Ce repo est aussi une marketplace (`.claude-plugin/marketplace.json`). En **CLI 
 ```
 /plugin marketplace add GhostHack616/claude-skills
 /plugin install productivity@ghosthack-skills
+/plugin install gtm-strategy@ghosthack-skills
 ```
 
 ou via `.claude/settings.json` (`extraKnownMarketplaces` + `enabledPlugins`).

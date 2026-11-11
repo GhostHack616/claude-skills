@@ -1,0 +1,10 @@
+{
+  "name": "gtm-strategy",
+  "description": "Ciblage GTM en français, chiffré et défendable. tam : parcours complet (icp-builder → market-sizing → abm) en un seul livrable. icp-builder : ICP sur 4 dimensions + ICP négatif + grille de score sur 100, tiré des deals gagnés du CRM. market-sizing : TAM/SAM/SOM bottom-up d'abord, top-down en contrôle, SOM dérivé de la capacité commerciale, hypothèses avec confiance et sensibilité. abm : tiers 1/2/3 calés sur la capacité, score d'engagement par compte, règles de passage. Aucun chiffre inventé, lecture seule sur le CRM.",
+  "version": "1.0.0",
+  "author": {
+    "name": "GhostHack616"
+  },
+  "homepage": "https://github.com/GhostHack616/claude-skills",
+  "license": "MIT"
+}
