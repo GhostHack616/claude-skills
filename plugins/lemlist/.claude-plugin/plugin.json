@@ -1,7 +1,7 @@
 {
   "name": "lemlist",
-  "description": "GTM & outbound skills for cold email and LinkedIn: ICP/persona definition, list building, copywriting by seniority (VP/Manager/IC), follow-ups, CTA design, campaign architecture, outbound benchmarking (244K+ campaigns), reply handling, CRM hygiene, and n8n automation.",
-  "version": "1.0.0",
+  "description": "Outbound : trouver les comptes et leur écrire. list-builder : de l'ICP à une recherche configurée dans Lemlist (comptes et contacts). trigger-finder : signaux d'achat, douleur probable, angle et moment. niche-data-finder : sources de données de niche. outbound-campaign-architect : structure de séquence multicanale. cold-email-writer : premier mail, séquence par niveau de séniorité, relances, CTA, angles. linkedin-outreach : angle depuis le profil + messages. cold-call-script. copy-review : note et réécrit un message. copy-lemlist : remplit une campagne Lemlist par l'API. reply-handler : répondre aux réponses. outbound-analyst : benchmarks sur 244K+ campagnes. Base : librairie lemlist (l3mpire/claude-skills, MIT), fusionnée et traduite.",
+  "version": "2.0.0",
   "author": {
     "name": "GhostHack616"
   },

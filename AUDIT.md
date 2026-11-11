@@ -1,5 +1,7 @@
 # Bulldozer Skills — Audit
 
+> **Mise à jour 11/11/2026.** Les chemins ci-dessous sont ceux de l'époque. Aujourd'hui : les 5 skills Meta bruts ont été remplacés par les 8 skills du plugin public Bulldozer (plugin `paid-ads`), et les skills Google Ads vivent dans `plugins/paid-ads/skills/` : `search-terms` (qui a absorbé `negative-keywords`), `rsa-generator`, `pmax-auditor`. `shopping-feed` a été supprimé.
+
 Audit réalisé 2026-04-28 sur les 10 SKILL.md récupérés depuis la page Notion publique de Bulldozer Collective.
 
 ## Verdict global

@@ -1,0 +1,8 @@
+{
+  "name": "paid-ads",
+  "description": "Publicité payante, Meta et Google. Meta (8 skills, copie du plugin public Bulldozer Collective 1.8.3) : structure de campagne, audiences, idées et textes de pub, notation des vidéos, décorticage d'une pub, suivi des conversions, audit du compte. Google Ads (3 skills, page Notion publique de Bulldozer) : search-terms (termes de recherche + mots-clés négatifs), rsa-generator (annonces RSA), pmax-auditor (Performance Max).",
+  "version": "2.0.0",
+  "author": {
+    "name": "Bulldozer Collective (contenu), GhostHack616 (packaging)"
+  }
+}

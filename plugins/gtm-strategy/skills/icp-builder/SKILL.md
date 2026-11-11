@@ -1,24 +1,45 @@
 ---
 name: icp-builder
 description: >-
-  À utiliser pour construire ou revoir un profil client idéal (ICP) à partir
-  des deals gagnés du CRM (ou d'un export CSV), avec l'ICP négatif et une
-  grille de score sur 100, quand on demande "ICP", "client idéal", "qui
-  cibler", "revoir notre ICP" ou "on vend à tout le monde". Ne fait pas la
-  liste de comptes ni les tiers : c'est la skill abm.
+  Construit ou revoit le profil client idéal (ICP) d'une entreprise : ICP sur 4
+  dimensions, ICP négatif et grille de score sur 100. Deux modes choisis tout
+  seuls : à partir des deals gagnés du CRM (ou d'un export CSV), ou en mode
+  hypothèse quand il n'y a encore aucune donnée (nouveau client, nouvelle
+  offre). À utiliser quand on demande "ICP", "client idéal", "qui cibler",
+  "définir l'ICP", "revoir notre ICP", "on vend à tout le monde", "meilleurs
+  clients pour X", "define ICP", "who should we target", "best customers for
+  X", "outbound targeting", "narrow audience", "segment customers" ou "build
+  me an outbound ICP". À lancer avant toute liste et toute rédaction. Ne fait
+  pas la personne à contacter (skill persona-builder), ni les tiers et la
+  liste de comptes (skill abm), ni les filtres de recherche (skill
+  list-builder).
 ---
-# ICP à partir des deals gagnés
+# ICP : le profil client idéal
 
 Un ICP fait d'envies est une liste de souhaits. Un ICP tiré des deals gagnés est un filtre de ciblage.
+Sans deals, on part d'hypothèses étroites, marquées comme telles, à remplacer dès que les données arrivent.
 
 ## Entrée
-- Les deals gagnés (CRM en place ou export CSV), le contexte de l'entreprise, l'ICP actuel s'il existe.
-- Lire d'abord ce qui est dispo. Poser une seule question si aucune donnée n'existe.
-- **Pas encore de deals gagnés :** faire un ICP de départ à partir de recherches web (concurrents, clients cités publiquement, offres d'emploi), marqué "hypothèse". Il sera remplacé dès qu'il y aura des deals.
+Lire d'abord ce qui existe, avant toute question :
+- un fichier `icp-*.md` déjà présent ;
+- `offre-*.md` (sortie de `offer-builder`), le contexte de l'entreprise, le site ;
+- le CRM en place ou un export CSV des deals gagnés et perdus.
+
+Poser 1 à 3 questions au maximum, seulement si une info manque et change le résultat (produit et problème réglé, 2 ou 3 meilleurs clients actuels, ordre de prix, contraintes de zone ou de secteur). Sinon déduire et marquer "hypothèse".
+
+## Choisir le mode (sans demander)
+| Situation | Mode |
+|---|---|
+| Un `icp-*.md` existe déjà | **Revue.** Le lire, ne pas le refaire. Proposer seulement ce qui doit bouger (nouvelles données, test de validation, critères de revalidation), puis aller au bloc Suite. |
+| Deals gagnés disponibles (minimum 20) | **Deals gagnés.** Étapes 1 à 6. |
+| Moins de 20 deals | **Hypothèse**, en se servant des quelques deals comme indices, pas comme preuve. |
+| Ni CRM ni deals (nouveau client) | **Hypothèse.** |
+
+Dire en une ligne le mode retenu et pourquoi.
 
 ## Sortie
-Un fichier `icp-{entreprise}.md` avec : ICP sur 4 dimensions, ICP négatif, grille de score sur 100, test de validation.
-Les tiers et la liste de comptes sont faits par `abm`, qui reprend cette grille telle quelle.
+Un fichier `icp-{entreprise}.md` avec : ICP sur 4 dimensions, ICP négatif, grille de score sur 100, test de validation. En mode hypothèse : les 2 fiches ICP retenues, chaque élément marqué "hypothèse".
+Les tiers et la liste de comptes sont faits par `abm`, qui reprend la grille telle quelle.
 Livrer dès le premier passage : un ICP partiel sur 20 deals vaut mieux qu'un ICP vide qui attend des données parfaites.
 
 ## Ce qu'un vrai ICP dit
@@ -28,8 +49,19 @@ Livrer dès le premier passage : un ICP partiel sur 20 deals vaut mieux qu'un IC
 
 La dimension "situation" est celle qu'on oublie le plus. Un compte peut coller parfaitement sur le papier et ne pas acheter aujourd'hui, puis devenir le client idéal le jour où il change de dirigeant ou lève des fonds.
 
+# Mode hypothèse (aucune donnée)
+Gabarits, exemples et tests : `references/mode-hypothese.md`.
+1. **Générer 3 à 5 hypothèses d'ICP, étroites.** Assez précises pour bâtir une liste demain. Chacune : profil d'entreprise, outils, déclencheurs, acheteur. S'appuyer sur la recherche web : concurrents, clients cités publiquement, offres d'emploi.
+2. **Noter et classer.** 1 à 5 sur douleur, budget, atteignabilité, timing (sur 20). Ce score classe les hypothèses, il ne note pas les comptes.
+3. **Fiche complète pour les 2 meilleures seulement** : douleur centrale, réponse de l'offre, angle de message, preuve, filtres pour la liste, et une première phrase d'ICP négatif.
+4. **Test "trop large".** Resserrer avec stade + déclencheur + rôle. Jamais "toutes les startups".
+5. **Barre de qualité.** 500 à 5 000 contacts trouvables demain sur LinkedIn ou Apollo. Des millions : trop large. Quelques dizaines : trop étroit.
+6. **Ranger dans le fichier** selon les 4 dimensions de l'étape 3 ci-dessous et reprendre la grille de l'étape 5 avec ses poids de départ. Tout est marqué "hypothèse", avec la confiance.
+
+# Mode deals gagnés
+
 ## Étape 1 : exploiter les deals gagnés
-Procédure complète et champs CRM : annexe « deals gagnés » plus bas.
+Procédure complète et champs CRM : `references/deals-gagnes.md`.
 - Deals gagnés des 18 à 24 derniers mois. Minimum 20 deals, idéal 50 et plus.
 - Pour chaque deal : profil d'entreprise, outils utilisés, forme du deal (panier, durée de cycle, nb de personnes impliquées, source, rôle du champion), ce qu'ils faisaient avant nous, et le résultat aujourd'hui (parti, actif, en croissance).
 - Mettre de côté les deals hors norme : réseau perso du fondateur, prix exceptionnel. Ils peuvent servir d'anecdote, pas de donnée.
@@ -117,64 +149,32 @@ Seuils (repris tels quels par `abm` pour faire les tiers) :
 - moins de 50 : Tier 3, automatique + nurturing, aucun travail à la main.
 
 ## Étape 6 : test de validation
-Procédure : annexe « validation » plus bas.
+Procédure : `references/validation.md`.
 - Avant de publier : passer le test de validation. Si un point échoue, retour à l'étape 2.
-- Pour passer de l'ICP à une liste de comptes par tier : lancer `abm`.
+
+# Commun aux deux modes
 
 ## Erreurs fréquentes
-- Partir d'une slide de positionnement au lieu des deals gagnés.
+- Partir d'une slide de positionnement au lieu des deals gagnés, quand ils existent.
 - Réduire l'ICP au profil d'entreprise : le profil filtre, les trois autres dimensions décident.
 - Oublier l'ICP négatif : c'est la moitié du filtre.
 - Laisser un deal hors norme définir le pic.
 - Publier l'ICP une fois et ne jamais le retester.
 
 ## Règles
-- Chaque élément de l'ICP doit se rattacher à un motif vu dans les deals. Sinon il sort.
+- Mode deals gagnés : chaque élément de l'ICP se rattache à un motif vu dans les deals. Sinon il sort.
+- Mode hypothèse : chaque élément porte la mention "hypothèse" et sa confiance. Jamais présenté comme un fait.
 - Une ambition (monter en gamme, nouveau segment) est une hypothèse à part, marquée comme telle, vérifiée chaque trimestre. Jamais mélangée à l'ICP.
 - Toujours livrer ICP + ICP négatif ensemble.
-- Revalider chaque trimestre, ou plus tôt si un signal l'impose (voir l'annexe).
+- Revalider chaque trimestre, ou plus tôt si un signal l'impose (voir `references/validation.md`).
 - Ne jamais inventer un chiffre : chaque nombre vient des données ou est marqué comme hypothèse avec sa confiance.
 - Lecture seule : rien de modifié dans le CRM sans validation.
 
----
+## Suite
+Proposer la suite et **attendre l'accord** avant d'enchaîner. Ne rien lancer tout seul.
+1. "On définit la personne à contacter ?" : `persona-builder`.
+2. "On chiffre le marché ?" : `market-sizing` (ou `tam` pour le parcours complet). "On étudie le marché et la concurrence ?" : `market-research`.
+3. "On fait les tiers et la liste de comptes ?" : `abm`.
+4. "On passe aux filtres de recherche ?" : `list-builder`.
 
-## Annexe : deals gagnés
-
-**Périmètre**
-- Deals gagnés des 18 à 24 derniers mois. Minimum 20, idéal 50 et plus.
-- Prendre aussi les deals perdus de la même période : ils nourrissent l'ICP négatif.
-
-**Où trouver les données :** le CRM en place, ou un export CSV si pas d'accès direct.
-
-HubSpot (optionnel, noms à vérifier sur le compte, un admin peut les avoir renommés) :
-- Deal : `hs_is_closed_won`, `hs_is_closed_lost`, `dealstage`, `closedate`, `days_to_close` (durée de cycle déjà calculée), `amount_in_home_currency` (panier), `closed_won_reason`, `closed_lost_reason`, `num_associated_contacts` (indice de taille du comité d'achat).
-- Entreprise : `industry`, `numberofemployees`, `annualrevenue`, `hs_ideal_customer_profile`, `hs_is_target_account`.
-- Le stade de financement n'est pas un champ standard : à compléter par recherche web.
-
-Pipedrive (optionnel, noms à vérifier sur le compte) :
-- Deal : statut `won` / `lost`, `value`, `won_time`, `lost_reason`.
-- Organisation : secteur et effectif sont souvent des champs personnalisés. Vérifier leur nom avant de lire.
-
-**Attention aux raisons de gain ou de perte :** c'est le commercial qui les tape. Il adoucit souvent une perte et transforme un coup de chance en motif. S'en servir pour trier les deals avant les entretiens clients, pas comme un fait.
-
-**Ce qu'on note pour chaque deal**
-- Profil : secteur précis (pas "logiciel", mais "logiciel d'aide à la vente B2B"), effectif et tranche de CA au moment de l'achat, zone, stade de financement, croissance (rythme de recrutement comme indice).
-- Outils : CRM, outils marketing, outils de prospection, outils de données et d'enrichissement, intégrations qui ont rendu l'offre utile ou inutile.
-- Forme du deal : panier, durée de cycle, nombre de personnes impliquées, source (entrant ou sortant), rôle du champion, rôle du décideur budgétaire, ce qu'ils faisaient avant nous (concurrent nommé, tableur, outil en place, ou rien : le statu quo est le "concurrent" le plus fréquent).
-- Résultat : parti, actif ou en croissance, revenu additionnel, recommandation (témoignage, parrainage, satisfaction).
-
----
-
-## Annexe : validation
-
-**Test de validation (avant de publier)**
-1. Appliquer l'ICP au pipe ouvert. Les comptes les mieux notés convertissent-ils mieux ?
-2. L'appliquer aux deals perdus du dernier trimestre. Les comptes mal notés y sont-ils surreprésentés ?
-3. Demander à 3 commerciaux : "Est-ce que ça décrit les deals les plus faciles à signer ?" Si non, chercher ce que les données ont raté et l'ajouter aux dimensions 3 ou 4. Les données disent ce qui s'est passé, les commerciaux disent pourquoi.
-4. Scorer aussi les renouvellements et les clients en croissance. Un compte qui note haut à l'achat et bas en rétention va dans l'ICP négatif.
-
-Si tout tient : publier. Si un point échoue : retour à l'étape 2.
-
-**Quand revalider**
-- Tous les 20 à 30 nouveaux deals gagnés, ou chaque trimestre, au premier des deux.
-- Tout de suite si le taux de gain du Tier 1 baisse deux mois de suite, ou si un même nouveau déclencheur apparaît sur 3 deals gagnés d'affilée sans être dans la dimension 4.
+Si l'offre n'est pas claire (pas de `offre-*.md`, promesse floue), le dire et proposer `offer-builder` d'abord.

@@ -1,7 +1,7 @@
 {
   "name": "tools",
-  "description": "General-purpose technical skills (non-marketing). youtube-transcript: read any YouTube video's transcript as plain text, no API key or cookie. apify-fetch: reliable web fetching via Apify (residential IPs, no 403) — YouTube transcripts and full-site crawl to clean markdown; replaces Supadata; needs APIFY_TOKEN. scrapling: web scraping / data extraction via the Scrapling lib (Fetcher decision tree, Cloudflare bypass, login sessions, HTML parsing); needs an open network (local/VPS), not a locked-down web sandbox.",
-  "version": "1.2.0",
+  "description": "Récupérer du contenu web. scrapling : scraping et extraction (choix du Fetcher, Cloudflare, sessions login, pagination, export CSV), avec l'échelle d'escalade read-API → Scrapling → stealth → Apify ; réseau ouvert requis. apify-fetch : transcripts YouTube et crawl de site en markdown via Apify (IP résidentielles), demande APIFY_TOKEN. youtube-transcript : transcript d'une vidéo YouTube sans clé (bloqué en 403 sur IP datacenter).",
+  "version": "1.3.0",
   "author": {
     "name": "GhostHack616"
   },

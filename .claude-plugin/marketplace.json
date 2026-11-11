@@ -5,34 +5,34 @@
   },
   "plugins": [
     {
+      "name": "gtm-strategy",
+      "source": "./plugins/gtm-strategy",
+      "description": "Stratégie GTM, en français, chiffrée et défendable. gtm-kickoff : chef d'orchestre du parcours complet d'un client, de l'offre à la campagne envoyée, étape par étape après accord. offer-builder : pourquoi les clients achètent, propositions de valeur, offre par canal. icp-builder : ICP + ICP négatif + grille de score sur 100, depuis les deals gagnés ou en mode hypothèse. persona-builder : personas depuis l'offre ou depuis des transcripts d'appels. market-research : étude de marché et carte de la concurrence. market-sizing : TAM/SAM/SOM bottom-up. tam : ICP → chiffrage → comptes en un livrable. abm : tiers de comptes, score d'engagement, règles de passage."
+    },
+    {
       "name": "lemlist",
       "source": "./plugins/lemlist",
-      "description": "39-skill GTM / outbound library from lemlist (l3mpire/claude-skills) — ICP, sourcing, cold email & LinkedIn copywriting, campaign design, benchmarking, CRM hygiene, n8n automation. Minus the Claap-specific skill. Plus copy-lemlist (Romain): fills a whole Lemlist multichannel campaign by API (A/B emails, LinkedIn, tasks), leads-first, benchmark-backed, French SMB founders."
+      "description": "Outbound : trouver les comptes et leur écrire. list-builder : de l'ICP à une recherche configurée dans Lemlist (comptes et contacts). trigger-finder : signaux d'achat, douleur probable, angle et moment. niche-data-finder : sources de données de niche. outbound-campaign-architect : structure de séquence multicanale. cold-email-writer : premier mail, séquence par niveau de séniorité, relances, CTA, angles. linkedin-outreach : angle depuis le profil + messages. cold-call-script. copy-review : note et réécrit un message. copy-lemlist : remplit une campagne Lemlist par l'API. reply-handler : répondre aux réponses. outbound-analyst : benchmarks sur 244K+ campagnes. Base : librairie lemlist (l3mpire/claude-skills, MIT), fusionnée et traduite."
+    },
+    {
+      "name": "paid-ads",
+      "source": "./plugins/paid-ads",
+      "description": "Publicité payante, Meta et Google. Meta (8 skills, copie du plugin public Bulldozer Collective 1.8.3) : structure de campagne, audiences, idées et textes de pub, notation des vidéos, décorticage d'une pub, suivi des conversions, audit du compte. Google Ads (3 skills, page Notion publique de Bulldozer) : search-terms (termes de recherche + mots-clés négatifs), rsa-generator (annonces RSA), pmax-auditor (Performance Max)."
+    },
+    {
+      "name": "revops",
+      "source": "./plugins/revops",
+      "description": "CRM et automatisation. n8n : construire un workflow importable (architecture, gestion d'erreurs, logs) ou déboguer une erreur. crm-duplicate-detector : repérer, noter et fusionner les doublons de contacts et de comptes. pipeline-analysis : analyse complète du pipe commercial avec tableau de bord. Skills issues de la librairie lemlist (l3mpire/claude-skills, MIT), n8n fusionné."
     },
     {
       "name": "tools",
       "source": "./plugins/tools",
-      "description": "General-purpose technical skills. youtube-transcript: read any YouTube video's transcript as plain text (yt subtitles), no API key or cookie. apify-fetch: reliable web fetching via Apify (residential IPs, no 403) — YouTube transcripts + full-site crawl to clean markdown; replaces Supadata; needs APIFY_TOKEN. scrapling: web scraping via the Scrapling lib (Fetcher decision tree, Cloudflare bypass, login sessions, HTML parsing); needs an open network (local/VPS)."
+      "description": "Récupérer du contenu web. scrapling : scraping et extraction (choix du Fetcher, Cloudflare, sessions login, pagination, export CSV), avec l'échelle d'escalade read-API → Scrapling → stealth → Apify ; réseau ouvert requis. apify-fetch : transcripts YouTube et crawl de site en markdown via Apify (IP résidentielles), demande APIFY_TOKEN. youtube-transcript : transcript d'une vidéo YouTube sans clé (bloqué en 403 sur IP datacenter)."
     },
     {
       "name": "productivity",
       "source": "./plugins/productivity",
-      "description": "Productivity skills. analyse-pertinence (fetch a URL's content — YouTube video or website — via Apify, then judge if it's relevant for Romain and how to reuse it; needs APIFY_TOKEN), grill-me (stress-test a plan via relentless interview), handoff (compact a conversation into a handoff doc), write-a-skill (author new skills properly), write-like-me (rewrite in the user's own voice, no AI tells), malt-response (winning Malt proposal playbook), malt-workflow (end-to-end Malt offer handling: pulls the offer from Gmail, judges fit, drafts the reply + a direct reinforcement email, or builds a profile-ranking dossier when off-target), brainstorm (structured brainstorm: grill-me interrogation + superpowers design flow, idea to validated design/action plan), i-have-adhd (output shaped for an ADHD reader: next action first, numbered steps, state restated every turn; manual /i-have-adhd, from ayghri/i-have-adhd, MIT)."
-    },
-    {
-      "name": "gtm-strategy",
-      "source": "./plugins/gtm-strategy",
-      "description": "Ciblage GTM en français, chiffré et défendable. tam : parcours complet (icp-builder → market-sizing → abm) en un seul livrable. icp-builder : ICP 4 dimensions + ICP négatif + grille de score sur 100, tiré des deals gagnés du CRM. market-sizing : TAM/SAM/SOM bottom-up d'abord, top-down en contrôle, SOM dérivé de la capacité commerciale, hypothèses avec confiance et sensibilité. abm : tiers 1/2/3 calés sur la capacité, score d'engagement par compte, règles de passage. Aucun chiffre inventé, lecture seule sur le CRM."
-    },
-    {
-      "name": "meta-ads",
-      "source": "./plugins/meta-ads",
-      "description": "Skills Meta Ads : structure de campagne, audiences, idées et textes de pub, notation des vidéos, suivi des conversions, audit du compte. Copie des 8 skills Meta du plugin public Bulldozer Collective (bulldozer-collective/bulldozer-claude-marketplace, version 1.8.3 du 30/10/2026)."
-    },
-    {
-      "name": "google-ads",
-      "source": "./plugins/google-ads",
-      "description": "Skills Google Ads B2B : negative-keywords (audit des mots-clés négatifs, budget gaspillé), search-terms (requêtes qui font des SQL vs bruit), rsa-generator (annonces RSA, limites 30/90), pmax-auditor (qualité des assets Performance Max), shopping-feed (flux Merchant, utile seulement en e-commerce). Copie des 5 skills Google Ads de la page Notion publique de Bulldozer Collective. Notes qualité par skill dans AUDIT.md."
+      "description": "Skills perso et méta. brainstorm (idée floue → plan validé, avec une grille GTM), grill-me, handoff, write-a-skill, prompt-engineering (optimiser un prompt), slide-deck-builder (document → .pptx), write-like-me (réécrire dans la voix de l'utilisateur), analyse-pertinence (juger une URL ou une vidéo, demande APIFY_TOKEN), malt-workflow et malt-response (opportunités Malt), i-have-adhd (réponses mises en forme pour un lecteur TDAH), marketplace-sync-check (vérifier que la marketplace est bien chargée)."
     }
   ]
 }

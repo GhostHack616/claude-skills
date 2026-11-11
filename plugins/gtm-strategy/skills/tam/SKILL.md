@@ -6,7 +6,7 @@ description: >-
   comptes", ou tout brief qui veut à la fois un chiffre de marché, un ICP et
   une liste de comptes. Enchaîne icp-builder → market-sizing → abm et sort un
   seul livrable. Pour un seul des trois morceaux, appeler directement la skill
-  concernée.
+  concernée. Pour le parcours client entier jusqu'à la campagne : gtm-kickoff.
 ---
 # TAM : le parcours complet
 
@@ -50,3 +50,9 @@ Un seul fichier `tam-{marché}.md` :
 - Toujours : calculs visibles, sources, niveaux de confiance.
 - Si une hypothèse basse fait basculer la conclusion, le dire en tête et proposer d'aller chercher la donnée.
 - Lecture seule : rien d'envoyé, rien de modifié dans le CRM ou les outils sans validation.
+
+## Suite
+Proposer la suite et attendre l'accord :
+- passer à la liste de leads : `list-builder` (plugin `lemlist`) ;
+- creuser le marché ou la concurrence : `market-research` ;
+- dérouler tout le parcours client jusqu'à la campagne : `gtm-kickoff`.

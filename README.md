@@ -6,50 +6,120 @@
 
 ---
 
+## Architecture : 6 blocs, 48 skills
+
+Rangé par thème, dans l'ordre du travail sur un client. Un bloc = un plugin = un zip dans `dist/`.
+
+| Bloc | Plugin | Skills | Sert à |
+|---|---|---|---|
+| 1. Stratégie | `gtm-strategy` | 8 | Quoi vendre, à qui, combien ça pèse |
+| 2. Outbound | `lemlist` | 11 | Trouver les comptes et leur écrire |
+| 3. Pub payante | `paid-ads` | 11 | Meta et Google Ads |
+| 4. CRM et automatisation | `revops` | 3 | n8n, doublons, pipe |
+| 5. Outils web | `tools` | 3 | Scraper, crawler, transcripts |
+| 6. Perso et méta | `productivity` | 12 | Malt, voix, brainstorm, écrire des skills |
+
+> Règle : **tout skill du repo vit dans un plugin** déclaré dans `.claude-plugin/marketplace.json`. Pas de dossier de skills hors `plugins/`. Avant d'en ajouter un : vérifier qu'il ne double pas un skill existant, sinon le fusionner.
+
+### La chaîne (ce qui s'enchaîne)
+
+Chaque skill lit les fichiers produits par les précédentes, puis propose la suivante et attend un « ok ».
+
+```
+offer-builder → icp-builder → persona-builder → [market-research · market-sizing · tam] → abm
+   → list-builder (+ trigger-finder, niche-data-finder) → outbound-campaign-architect
+   → cold-email-writer · linkedin-outreach · cold-call-script → copy-review → copy-lemlist
+   → reply-handler → outbound-analyst → pipeline-analysis
+```
+
+- **`gtm-kickoff`** déroule toute la chaîne pour un client : il regarde ce qui existe, part de la première étape manquante, s'arrête pour validation entre chaque étape. Déclencheurs : « je démarre un client », « on en est où sur ce client ».
+- **`tam`** déroule seulement la partie chiffrage : `icp-builder` → `market-sizing` → `abm`.
+
+---
+
 ## Index des skills
 
-### Plugin `productivity` (9 skills) — mes skills perso
+### 1. `gtm-strategy` : stratégie (8)
 | Skill | Rôle |
 |---|---|
-| `analyse-pertinence` | Récupère le contenu d'une URL (vidéo YouTube ou site) via Apify, puis juge s'il est **pertinent pour moi** (profil growth/outbound) et comment le réutiliser. Grille 5 axes + verdict 🟢/🟡/🔴. Requiert `APIFY_TOKEN`. |
-| `brainstorm` | Brainstorm structuré : interrogatoire serré de grill-me (1 question à la fois, hypothèses challengées, réponse recommandée) + flux design de superpowers (contexte, 2-3 approches, design section par section, doc validé). Pour idées code ET business/growth. |
-| `malt-workflow` | Workflow Malt à 2 modes. **Offre** : va chercher l'offre dans Gmail, lit profil + stats (RomainPro), juge le fit, produit la réponse Malt + un email de renfort, ou un dossier de ranking si hors cible. **Profil** : audite le compte Malt (titre, mots-clés, description, TJM) et sort un plan de modif en cas de disette ou sur demande. S'optimise via les journaux win-loss + changements de profil. |
-| `malt-response` | Playbook de réponse Malt gagnante (méthode pure, vendeuse, objectif = décrocher l'entretien). |
-| `write-like-me` | Réécrit dans ma voix (anti-IA, zéro tiret cadratin). **Contient `voice-profile.md` = la source de vérité de ma voix.** |
-| `grill-me` | Stress-test d'un plan par interview serré. |
+| `gtm-kickoff` | Chef d'orchestre du parcours client complet, de l'offre à la campagne envoyée. |
+| `offer-builder` | Pourquoi les clients achètent (site, cas clients, avis), inventaire des propositions de valeur, offre sur trois niveaux et par canal. |
+| `icp-builder` | ICP sur 4 dimensions + ICP négatif + grille de score sur 100. Mode deals gagnés (CRM ou CSV) ou mode hypothèse (nouveau client sans données). |
+| `persona-builder` | Personas acheteurs. Mode hypothèse (depuis l'offre et l'ICP) ou mode transcripts (analyse d'appels de vente). |
+| `market-research` | Étude de marché (douleurs, segments, tendances) et carte de la concurrence avec battlecard. |
+| `market-sizing` | TAM / SAM / SOM : bottom-up d'abord, top-down en contrôle, SOM dérivé de la capacité commerciale. |
+| `tam` | Enchaîne `icp-builder` → `market-sizing` → `abm`, un seul livrable. |
+| `abm` | Tiers 1/2/3 calés sur la capacité, liste de comptes scorée, score d'engagement, règles de passage. |
+
+### 2. `lemlist` : outbound (11)
+| Skill | Rôle |
+|---|---|
+| `list-builder` | De l'ICP et du persona à une recherche configurée dans Lemlist : comptes, contacts, signaux. |
+| `trigger-finder` | Signaux d'achat → douleur probable → angle et moment. Mode stratégique (quoi surveiller) ou tactique (un compte précis). |
+| `niche-data-finder` | 3 à 5 sources de données de niche avec signal d'achat pour un segment. |
+| `outbound-campaign-architect` | Structure de la séquence : canaux, étapes, délais, d'après les données lemlist. |
+| `cold-email-writer` | Premier mail, séquence de 3 mails par niveau (VP, manager, IC), relances, CTA, angles de campagne. |
+| `linkedin-outreach` | Angle d'attaque depuis un profil LinkedIn + séquence de 2 messages après connexion. |
+| `cold-call-script` | Script d'appel à froid structuré. |
+| `copy-review` | Note, audite et réécrit un mail, un message LinkedIn ou une séquence. |
+| `copy-lemlist` | Remplit une campagne Lemlist multicanal par l'API (mails A/B, LinkedIn, tâches), deux brouillons avant déploiement. Skill maison, dirigeants de PME françaises. |
+| `reply-handler` | Classer une réponse et écrire la bonne suite. |
+| `outbound-analyst` | Comparer une campagne aux benchmarks lemlist (244K+ campagnes). |
+
+### 3. `paid-ads` : pub payante (11)
+- **Meta (8)** : `meta-ads`, `audience-architecture`, `ad-creative-brief`, `ad-creative`, `ad-creative-scorecard`, `ad-reverse-engineer`, `analytics-tracking`, `audit-paid-ads`. Copie telle quelle du plugin public Bulldozer Collective 1.8.3.
+- **Google Ads (3)** : `search-terms` (termes de recherche + mots-clés négatifs), `rsa-generator`, `pmax-auditor`.
+
+Détail et limites : [`plugins/paid-ads/README.md`](plugins/paid-ads/README.md). Notes qualité : `AUDIT.md`.
+
+### 4. `revops` : CRM et automatisation (3)
+| Skill | Rôle |
+|---|---|
+| `n8n` | Construire un workflow n8n importable (architecture, erreurs, logs, tests) ou déboguer une erreur. |
+| `crm-duplicate-detector` | Repérer, noter et fusionner les doublons de contacts et de comptes. |
+| `pipeline-analysis` | Analyse du pipe commercial avec tableau de bord interactif. |
+
+### 5. `tools` : outils web (3)
+- `scrapling` : scraping et extraction (choix du Fetcher, Cloudflare, login, pagination, export CSV). Porte l'échelle d'escalade : read-API → Scrapling → stealth → Apify. Réseau ouvert requis (local ou VPS).
+- `apify-fetch` : transcripts YouTube et crawl d'un site en markdown via Apify (IP résidentielles). Demande `APIFY_TOKEN`.
+- `youtube-transcript` : transcript YouTube sans clé (bloqué en 403 sur IP datacenter).
+
+### 6. `productivity` : perso et méta (12)
+| Skill | Rôle |
+|---|---|
+| `malt-workflow` | Workflow Malt à 2 modes (offre, profil). Va chercher l'offre dans Gmail, juge le fit, produit la réponse. |
+| `malt-response` | Playbook de réponse Malt gagnante, utilisé par `malt-workflow`. |
+| `write-like-me` | Réécrit dans ma voix. **Contient `voice-profile.md` = la source de vérité de ma voix.** |
+| `analyse-pertinence` | Récupère une URL (vidéo ou site) via Apify et juge si elle est pertinente pour moi. Demande `APIFY_TOKEN`. |
+| `brainstorm` | Idée floue → design ou plan validé (grill + 2-3 approches + doc). Grille GTM en référence. |
+| `grill-me` | Stress-test d'un plan par interview serrée. |
 | `handoff` | Compacte une conversation en doc de passation. |
-| `write-a-skill` | Aide à écrire un nouveau skill proprement. |
-| `i-have-adhd` | Met en forme les réponses pour un lecteur TDAH : action d'abord, étapes numérotées, état restitué à chaque tour, temps en minutes, victoires visibles. Manuel (`/i-have-adhd`), actif jusqu'à « stop adhd mode ». Source : ayghri/i-have-adhd (MIT), non modifié. |
+| `write-a-skill` | Écrire un nouveau skill proprement. |
+| `prompt-engineering` | Transformer un prompt brouillon en prompt prêt pour la prod. |
+| `slide-deck-builder` | Document source → présentation .pptx. |
+| `i-have-adhd` | Réponses mises en forme pour un lecteur TDAH. Manuel (`/i-have-adhd`). |
+| `marketplace-sync-check` | Vérifie que la marketplace est bien chargée dans le repo courant. |
 
-### Plugin `lemlist` (39 skills) — librairie GTM / outbound
-ICP, sourcing, copywriting cold email & LinkedIn, campaign design, benchmarking, hygiène CRM, automatisation n8n. Source : l3mpire/claude-skills (MIT), moins le skill spécifique Claap.
+### Ce qui a été fusionné (11/11/2026)
+68 skills → 48. Rien n'est perdu : les anciennes versions restent dans l'historique git.
 
-| Skill maison | Rôle |
+| Avant | Maintenant |
 |---|---|
-| `copy-lemlist` | Remplit une campagne Lemlist multicanal par l'API (mails A/B, LinkedIn, tâches) : lit les leads d'abord (ou pose les questions), recherche pain points / vocabulaire / claims / réponse du client, fiche d'angles et grill, variables à repli jamais bloquantes, délivrabilité dans le copy, deux drafts avant déploiement, relecture API. Bibliothèques sourcées jointes : `references/hooks.md`, `references/cta.md`, `references/objets.md`. |
-
-### Plugin `tools` (3 skills)
-- `youtube-transcript` : lit le transcript d'une vidéo YouTube en texte brut (sans clé API, mais bloqué en 403 sur IP datacenter).
-- `apify-fetch` : récupération web fiable via Apify (IP résidentielles → pas de 403). Deux usages : transcript YouTube (vidéo/chaîne/playlist) et crawl d'un site entier → markdown propre. **Remplace Supadata.** Requiert la variable d'env `APIFY_TOKEN`.
-- `scrapling` : scraping web via la lib Scrapling (arbre de décision Fetcher, bypass Cloudflare, sessions login, parsing HTML). Requiert un réseau ouvert (local/VPS), pas un sandbox web bridé. Adapté de Cedriccmh/claude-code-skill-scrapling (MIT).
-
-### Plugin `gtm-strategy` (4 skills) : ciblage chiffré, en français
-| Skill | Rôle |
-|---|---|
-| `tam` | Chef d'orchestre : `icp-builder` → `market-sizing` → `abm`, un seul livrable `tam-{marché}.md`. Déclencheurs : « fais-moi un TAM », « TAM SAM SOM », « TAM complet ». |
-| `icp-builder` | ICP sur 4 dimensions (profil, outils, comportement d'achat, déclencheurs) + ICP négatif + grille de score sur 100, tiré des deals gagnés (HubSpot, Pipedrive ou CSV). Test de validation avant publication. |
-| `market-sizing` | TAM / SAM / SOM : bottom-up d'abord, top-down en contrôle, SOM dérivé de la capacité commerciale. Hypothèses avec confiance + sensibilité ×2/÷2, règle d'arrêt. |
-| `abm` | Tiers 1/2/3 calés sur la capacité commerciale, liste de comptes scorée avec la grille d'`icp-builder`, score d'engagement par compte, règles de montée / descente / sortie. |
-
-Règle commune : aucun chiffre inventé, calculs visibles, lecture seule sur le CRM. Chevauchement connu avec `lemlist` : `icp-definer` (ICP outbound, en anglais, sans données CRM) et `trigger-finder`. `icp-builder` part des deals gagnés ; `icp-definer` part du produit.
-
-### Plugin `meta-ads` (8 skills) : Meta Ads, depuis le plugin public Bulldozer
-Structure de campagne, audiences, idées et textes de pub, notation des vidéos, suivi des conversions, audit du compte. Copie telle quelle des skills Meta du plugin public `bulldozer-collective/bulldozer-claude-marketplace` (version 1.8.3, 30/10/2026). Détail et limites : [`plugins/meta-ads/README.md`](plugins/meta-ads/README.md).
-
-### Plugin `google-ads` (5 skills) : Google Ads B2B, depuis la page Notion publique de Bulldozer
-`negative-keywords`, `search-terms`, `rsa-generator`, `pmax-auditor`, `shopping-feed` (ce dernier ne sert qu'en e-commerce). Packagés en plugin le 11/11/2026 (avant : `bulldozer/`, hors plugin). Notes qualité par skill dans `AUDIT.md`.
-
-> Règle : **tout skill du repo vit dans un plugin** déclaré dans `.claude-plugin/marketplace.json`. Pas de dossier de skills bruts hors `plugins/`.
+| `icp-definer` | `icp-builder` (mode hypothèse) |
+| `persona-definer`, `persona-insights-analysis` | `persona-builder` |
+| `deep-company-analyser`, `value-prop-lister`, `offer-definer` | `offer-builder` |
+| `market-research-edp`, `competitor-finder` | `market-research` |
+| `list-builder`, `company-finder`, `people-finder` | `list-builder` |
+| `trigger-finder`, `pain-identifier` | `trigger-finder` |
+| `copywriting-first-touch`, `copywriting-follow-up`, `copywriting-ic-sequence`, `copywriting-manager-sequence`, `copywriting-vp-sequence`, `cta-designer`, `campaign-angle-finder` | `cold-email-writer` |
+| `copywriting-analyzer`, `copywriting-refiner` | `copy-review` |
+| `linkedin-outbound-angle`, `linkedin-sequence` | `linkedin-outreach` |
+| `n8n-workflow-builder`, `n8n-debugger` | `n8n` |
+| `website-scraper` | `scrapling` |
+| `search-terms`, `negative-keywords` | `search-terms` |
+| `gtm-action-thinker` | `brainstorm` (référence `gtm-lens.md`) |
+| `shopping-feed` | supprimé (e-commerce, hors cible) |
+| plugins `meta-ads` + `google-ads` | plugin `paid-ads` |
 
 ---
 
@@ -69,18 +139,30 @@ RomainPro/
         └── write-like-me/   (avec voice-profile.md)
 ```
 
-Les zips prêts à déposer sont dans `dist/`.
+Un zip par bloc dans `dist/`, à dézipper dans `.claude/skills/` du repo consommateur :
+
+```bash
+unzip -o ~/claude-skills/dist/gtm-strategy.zip -d .claude/skills/
+```
+
+```bash
+unzip -o ~/claude-skills/dist/lemlist.zip -d .claude/skills/
+```
+
+Les deux ensemble donnent toute la chaîne client (`gtm-kickoff` compris). Régénérer les zips après chaque changement : `scripts/build-dist.sh`.
 
 ### 2. Marketplace de plugins — **CLI local seulement**
 Ce repo est aussi une marketplace (`.claude-plugin/marketplace.json`). En **CLI local** :
 
 ```
 /plugin marketplace add GhostHack616/claude-skills
-/plugin install productivity@ghosthack-skills
 /plugin install gtm-strategy@ghosthack-skills
+/plugin install lemlist@ghosthack-skills
 ```
 
-Plugins disponibles : `productivity`, `lemlist`, `tools`, `gtm-strategy`, `meta-ads`, `google-ads`.
+Plugins disponibles : `gtm-strategy`, `lemlist`, `paid-ads`, `revops`, `tools`, `productivity`.
+
+> ⚠️ Changement du 11/11/2026 : `meta-ads` s'appelle maintenant `paid-ads`, et les skills n8n / CRM sont passées de `lemlist` à `revops`. Dans un repo qui active des plugins par `enabledPlugins`, remplacer `meta-ads@ghosthack-skills` par `paid-ads@ghosthack-skills` et ajouter `revops@ghosthack-skills` et `gtm-strategy@ghosthack-skills`.
 
 ou via `.claude/settings.json` (`extraKnownMarketplaces` + `enabledPlugins`).
 
@@ -92,7 +174,7 @@ ou via `.claude/settings.json` (`extraKnownMarketplaces` + `enabledPlugins`).
 
 1. Tout changement (skill ou voix) se fait **ici**, sur `master`.
 2. Pour la voix / l'écriture : un seul fichier, `plugins/productivity/skills/write-like-me/voice-profile.md`. `malt-workflow` et `malt-response` ne font que le référencer.
-3. On régénère le zip dans `dist/`, on le redépose dans le repo consommateur (qui écrase l'ancienne copie).
+3. On régénère les zips (`scripts/build-dist.sh`), on redépose celui du bloc concerné dans le repo consommateur (qui écrase l'ancienne copie).
 4. On ne modifie jamais la copie dans RomainPro sans backporter ici.
 
 ---

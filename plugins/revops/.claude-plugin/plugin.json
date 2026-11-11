@@ -1,0 +1,10 @@
+{
+  "name": "revops",
+  "description": "CRM et automatisation. n8n : construire un workflow importable (architecture, gestion d'erreurs, logs) ou déboguer une erreur. crm-duplicate-detector : repérer, noter et fusionner les doublons de contacts et de comptes. pipeline-analysis : analyse complète du pipe commercial avec tableau de bord. Skills issues de la librairie lemlist (l3mpire/claude-skills, MIT), n8n fusionné.",
+  "version": "1.0.0",
+  "author": {
+    "name": "GhostHack616"
+  },
+  "homepage": "https://github.com/GhostHack616/claude-skills",
+  "license": "MIT"
+}

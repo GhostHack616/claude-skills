@@ -1,7 +1,7 @@
 {
   "name": "gtm-strategy",
-  "description": "Ciblage GTM en français, chiffré et défendable. tam : parcours complet (icp-builder → market-sizing → abm) en un seul livrable. icp-builder : ICP sur 4 dimensions + ICP négatif + grille de score sur 100, tiré des deals gagnés du CRM. market-sizing : TAM/SAM/SOM bottom-up d'abord, top-down en contrôle, SOM dérivé de la capacité commerciale, hypothèses avec confiance et sensibilité. abm : tiers 1/2/3 calés sur la capacité, score d'engagement par compte, règles de passage. Aucun chiffre inventé, lecture seule sur le CRM.",
-  "version": "1.0.0",
+  "description": "Stratégie GTM, en français, chiffrée et défendable. gtm-kickoff : chef d'orchestre du parcours complet d'un client, de l'offre à la campagne envoyée, étape par étape après accord. offer-builder : pourquoi les clients achètent, propositions de valeur, offre par canal. icp-builder : ICP + ICP négatif + grille de score sur 100, depuis les deals gagnés ou en mode hypothèse. persona-builder : personas depuis l'offre ou depuis des transcripts d'appels. market-research : étude de marché et carte de la concurrence. market-sizing : TAM/SAM/SOM bottom-up. tam : ICP → chiffrage → comptes en un livrable. abm : tiers de comptes, score d'engagement, règles de passage.",
+  "version": "1.1.0",
   "author": {
     "name": "GhostHack616"
   },

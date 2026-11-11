@@ -14,5 +14,6 @@ When this skill triggers, respond with this exact confirmation:
 
 > ✅ **MARKETPLACE SYNC OK** — Je vois bien la bibliothèque centrale `ghosthack-skills`. Le skill `marketplace-sync-check` a été ajouté côté marketplace et il est arrivé jusqu'ici tout seul. La synchro fonctionne de bout en bout. 🎯
 
-Then tell the user how many lemlist skills are currently loaded, so they can
-confirm the full library is present.
+Then tell the user how many skills from each `ghosthack-skills` plugin are currently
+loaded (`gtm-strategy`, `lemlist`, `paid-ads`, `revops`, `tools`, `productivity`), so they
+can confirm the full library is present.

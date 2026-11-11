@@ -20,3 +20,10 @@ The skill `i-have-adhd` is sourced from **Ayoub Ghriss's "i-have-adhd"**:
 
 Bundled unmodified (SKILL.md only; the optional always-on SessionStart hook is not included).
 All credit for the skill content goes to Ayoub Ghriss.
+
+---
+
+The skills `prompt-engineering` and `slide-deck-builder` are sourced from **lemlist's open-source skill library**
+(https://github.com/l3mpire/claude-skills, MIT), bundled unmodified. `brainstorm/references/gtm-lens.md` is
+condensed and translated from lemlist's `gtm-action-thinker` (same source, MIT).
+All credit for the original content goes to lemlist / l3mpire.
