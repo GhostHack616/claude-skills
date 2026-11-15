@@ -85,6 +85,9 @@ Détail : `references/filtres-contacts.md`.
 ## Étape 6 : vérifier avant d'importer
 Contrôler 10 à 15 profils à la main. **Si plus de 20 % ne collent pas, resserrer les filtres avant de lancer la recherche complète.**
 
+## Étape 7 : importer et nettoyer la base dans Lemlist
+Avant toute écriture dans Lemlist (import, champs, nettoyage), lire `references/base-lemlist.md` : champs natifs à utiliser avant tout champ custom, signaux de rebond et de désinscription, pièges de l'API, sources officielles gratuites, méthode en une passe. Puis contrôle qualité (étape 5 du skill `tam`).
+
 ## Modèle de sortie
 ```
 ## Configuration de recherche : [nom de l'ICP / du persona]
