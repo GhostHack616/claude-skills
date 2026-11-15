@@ -35,7 +35,18 @@ Lancer `market-sizing` avec les fourchettes de l'ICP :
 ## 4. Comptes par tier (optionnel)
 Seulement si on veut une liste cible : lancer `abm` avec la grille de score de l'étape 2. C'est `abm` qui fait les tiers 1/2/3 et la liste, calés sur la capacité commerciale.
 
-## 5. Livrable
+## 5. Contrôle qualité avant de livrer une liste (obligatoire dès qu'on importe des comptes ou des contacts)
+Une liste n'est **pas finie** tant que ce contrôle ne sort pas **zéro écart**. On livre sa sortie brute, pas un résumé.
+1. **Une référence externe, fixée au départ, téléchargée en entier** : jamais un fichier interne. Ex. communes → liste officielle avec population (geo.api.gouv.fr, un seul appel) ; entreprises → SIRENE / recherche-entreprises.api.gouv.fr ; coordonnées publiques d'administrations → annuaire service-public (téléchargement complet sur data.gouv.fr, plus fiable que l'API un par un).
+2. **Nomenclature et scoring posés avant l'import**, pas après. Une seule liste par cible, on trie avec des champs (score, compte principal, vérif email), pas de sous-listes.
+3. **Avant de réimporter un contact déjà connu de l'outil** : lire son statut (ex. Lemlist `leadStatus` « Email bounced », `emailDeliverability`) et comprendre pourquoi il avait été écarté.
+4. **Ne jamais retirer un compte de la liste** parce que son adresse est morte : il reste, marqué invalide + malus, pour que le trou reste visible.
+5. **Emails vérifiés avant envoi** (vérificateur) ; recontrôler au DNS (MX) les « domaine inexistant », souvent faux.
+6. **Contrôle automatique** (script) sur un export frais : couverture face à la référence (manquants listés), chaque champ obligatoire rempli, chaque règle tenue (1 contact principal par compte, score = grille, rebonds marqués invalides, adresses hors sujet comme webmaster@/compta@ jamais en principal, société liée et bien nommée).
+7. **Les chiffres de la doc viennent de ce contrôle**, jamais tapés à la main.
+8. Faire relire par un second agent sur son propre export avant de dire « fini ».
+
+## 6. Livrable
 Un seul fichier `tam-{marché}.md` :
 1. **Définition du marché** : offre, cible, zone, ce qui est inclus et exclu.
 2. **ICP + ICP négatif** : ou "hypothèse" si pas de deals.
@@ -53,6 +64,6 @@ Un seul fichier `tam-{marché}.md` :
 
 ## Suite
 Proposer la suite et attendre l'accord :
-- passer à la liste de leads : `list-builder` (plugin `lemlist`) ;
+- passer à la liste de leads : `list-builder` (plugin `lemlist`), puis le contrôle qualité de l'étape 5 avant tout envoi ;
 - creuser le marché ou la concurrence : `market-research` ;
 - dérouler tout le parcours client jusqu'à la campagne : `gtm-kickoff`.
